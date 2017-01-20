@@ -76,6 +76,7 @@
         <module>assemblies</module>
         <module>demos</module>
         <module>archetypes</module>
+        <module>examples</module>
         <module>itests</module>
     </modules>
 

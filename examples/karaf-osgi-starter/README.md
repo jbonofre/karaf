@@ -27,12 +27,12 @@ To do that, the most elegant solution is to use a Service Tracker.
 
 ## Artifacts
 
-The karaf-osgi-starter contains three bundles:
+The karaf-osgi-starter contains four artifacts:
 
 * karaf-osgi-starter-common is a very simple bundle providing the package with the interface describing the service. In this example, we are using a airline booking service.
 * karaf-osgi-starter-provider is a bundle containing a very simple implementation of the booking service. This bundle contains an activator to register the service in the registry.
 * karaf-osgi-starter-client is a bundle containing a activator. This activator doesn't register a booking service but use a service tracker to track the state of booking service and display the list of bookings every 5 seconds.
-* karaf-osgi-starter-feature provides a Karaf features repository used for the deployment.
+* karaf-osgi-starter-features provides a Karaf features repository used for the deployment.
 
 ## Build
 

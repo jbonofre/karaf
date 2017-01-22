@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 https://osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd">
 
     <!--
 
@@ -19,25 +21,16 @@
         limitations under the License.
     -->
 
-    <modelVersion>4.0.0</modelVersion>
+    <reference id="bookingService" interface="org.apache.karaf.examples.starter.jpa.BookingService"/>
 
-    <parent>
-        <groupId>org.apache.karaf</groupId>
-        <artifactId>karaf</artifactId>
-        <version>4.1.0-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath>
-    </parent>
+    <bean id="listThread" class="org.apache.karaf.examples.starter.jpa.client.ListBean" init-method="start" destroy-method="stop">
+        <property name="bookingService" ref="bookingService"/>
+    </bean>
 
-    <groupId>org.apache.karaf.examples</groupId>
-    <artifactId>apache-karaf-examples</artifactId>
-    <version>4.1.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
+    <!--
+    <bean id="addThread" class="org.apache.karaf.examples.starter.jpa.client.AddBean" init-method="start" destroy-method="stop">
+        <property name="bookingService" ref="bookingService"/>
+    </bean>
+    -->
 
-    <modules>
-        <module>karaf-osgi-starter</module>
-        <!-- <module>karaf-blueprint-starter</module> -->
-        <!-- <module>karaf-ds-starter</module> -->
-        <module>karaf-jpa-starter</module>
-    </modules>
-
-</project>
+</blueprint>

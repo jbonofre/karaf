@@ -35,9 +35,32 @@
 
     <modules>
         <module>karaf-osgi-starter</module>
+        <!-- <module>karaf-osgi-managed-service-starter</module> -->
+        <!-- <module>karaf-osgi-managed-service-factory-starter</module> -->
         <!-- <module>karaf-blueprint-starter</module> -->
+        <!-- <module>karaf-blueprint-config-starter</module> -->
         <!-- <module>karaf-ds-starter</module> -->
+        <!-- <module>karaf-ds-config-starter</module> -->
+        <module>karaf-branding-starter</module>
+        <!-- <module>karaf-command-starter</module> -->
+        <!-- <module>karaf-mbean-starter</module> -->
+        <!-- <module>karaf-url-namespace-handler-starter</module> -->
+        <!-- <module>karaf-log-appender-starter</module> -->
+        <!-- <module>karaf-deployer-starter</module> -->
+        <!-- <module>karaf-jaas-config-starter</module> -->
+        <!-- <module>karaf-jaas-login-module-starter</module> -->
+        <!-- <module>karaf-encryption-starter</module> -->
+        <!-- <module>karaf-servlet-starter</module> -->
+        <!-- <module>karaf-war-starter</module> -->
+        <!-- <module>karaf-jndi-starter</module> -->
+        <!-- <module>karaf-jdbc-starter</module> -->
+        <!-- <module>karaf-jms-starter</module> -->
         <module>karaf-jpa-starter</module>
+        <!-- <module>karaf-cdi-starter</module> -->
+        <!-- <module>karaf-rest-starter</module> -->
+        <!-- <module>karaf-soap-starter</module> -->
+        <!-- <module>karaf-camel-starter</module> -->
+        <!-- <module>karaf-profile-starter</module> -->
     </modules>
 
 </project>

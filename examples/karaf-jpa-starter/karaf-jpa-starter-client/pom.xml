@@ -22,22 +22,36 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.apache.karaf</groupId>
-        <artifactId>karaf</artifactId>
+        <groupId>org.apache.karaf.examples</groupId>
+        <artifactId>karaf-jpa-starter</artifactId>
         <version>4.1.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <groupId>org.apache.karaf.examples</groupId>
-    <artifactId>apache-karaf-examples</artifactId>
+    <artifactId>karaf-jpa-starter-client</artifactId>
     <version>4.1.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
+    <packaging>bundle</packaging>
 
-    <modules>
-        <module>karaf-osgi-starter</module>
-        <!-- <module>karaf-blueprint-starter</module> -->
-        <!-- <module>karaf-ds-starter</module> -->
-        <module>karaf-jpa-starter</module>
-    </modules>
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.karaf.examples</groupId>
+            <artifactId>karaf-jpa-starter-provider</artifactId>
+            <version>4.1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <configuration>
+                    <instructions>
+                        <Import-Package>org.apache.karaf.examples.starter.jpa</Import-Package>
+                    </instructions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

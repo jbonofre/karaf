@@ -35,7 +35,7 @@
 
     <modules>
         <module>karaf-osgi-starter</module>
-        <!-- <module>karaf-osgi-managed-service-starter</module> -->
+        <module>karaf-osgi-config-starter</module>
         <!-- <module>karaf-osgi-managed-service-factory-starter</module> -->
         <!-- <module>karaf-blueprint-starter</module> -->
         <!-- <module>karaf-blueprint-config-starter</module> -->

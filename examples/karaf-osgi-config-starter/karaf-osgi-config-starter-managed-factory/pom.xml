@@ -23,19 +23,42 @@
 
     <parent>
         <groupId>org.apache.karaf.examples</groupId>
-        <artifactId>apache-karaf-examples</artifactId>
+        <artifactId>karaf-osgi-config-starter</artifactId>
         <version>4.1.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>karaf-osgi-config-starter</artifactId>
+    <artifactId>karaf-osgi-config-starter-managed-factory</artifactId>
     <version>4.1.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
+    <packaging>bundle</packaging>
 
-    <modules>
-        <module>karaf-osgi-config-starter-managed</module>
-        <module>karaf-osgi-config-starter-managed-factory</module>
-        <module>karaf-osgi-config-starter-features</module>
-    </modules>
+    <dependencies>
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.compendium</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <configuration>
+                    <instructions>
+                        <Import-Package>
+                            org.osgi.framework,
+                            org.osgi.service.cm
+                        </Import-Package>
+                        <Bundle-Activator>org.apache.karaf.examples.starter.osgi.config.managed.factory.Activator</Bundle-Activator>
+                    </instructions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

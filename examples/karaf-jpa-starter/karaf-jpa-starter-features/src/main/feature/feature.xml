@@ -24,6 +24,9 @@
             databaseName=booking;create=true
             dataSourceName=booking
         </config>
+        <capability>
+            osgi.service;objectClass=javax.sql.DataSource;effective:=active;osgi.jndi.service.name=booking
+        </capability>
     </feature>
 
     <feature name="karaf-jpa-starter-common" version="${project.version}">

@@ -39,7 +39,7 @@
         </dependency>
         <dependency>
             <groupId>org.osgi</groupId>
-            <artifactId>osgi.cmpn</artifactId>
+            <artifactId>org.osgi.compendium</artifactId>
         </dependency>
     </dependencies>
 
@@ -50,10 +50,11 @@
                 <artifactId>maven-bundle-plugin</artifactId>
                 <configuration>
                     <instructions>
-                        <Export-Package></Export-Package>
                         <Import-Package>
-                            org.osgi.framework
+                            org.osgi.framework,
+                            org.osgi.service.cm
                         </Import-Package>
+                        <Bundle-Activator>org.apache.karaf.examples.starter.osgi.config.managed.Activator</Bundle-Activator>
                     </instructions>
                 </configuration>
             </plugin>

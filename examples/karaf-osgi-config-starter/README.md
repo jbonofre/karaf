@@ -35,3 +35,39 @@ mvn clean install
 
 ## Feature and Deployment
 
+Register the feature in a running Karaf instance:
+
+```
+karaf@root()> feature:repo-add mvn:org.apache.karaf.examples/karaf-osgi-config-starter-features/4.1.0-SNAPSHOT/xml
+```
+
+To test the managed service, you can deploy the `karaf-osgi-config-starter-managed` feature:
+
+```
+karaf@root()> feature:install karaf-osgi-config-starter-managed
+```
+
+This feature creates a `etc/org.apache.karaf.examples.starter.osgi.config.managed.cfg` configuration file containing:
+
+```
+foo=bar
+```
+
+If you change the content of this file, for instance adding `key=value`, you will see the following message in the Karaf shell console:
+
+```
+Configuration has changed/created:
+        felix.fileinstall.filename = file:/home/jbonofre/Workspace/karaf/assemblies/apache-karaf/target/apache-karaf-4.1.0-SNAPSHOT/etc/org.apache.karaf.examples.starter.osgi.config.managed.cfg
+        service.pid = org.apache.karaf.examples.starter.osgi.config.managed
+        test = other
+```
+
+The managed service factory behaves the same, but you can also create a new file like `etc/org.apache.karaf.examples.starter.osgi.config.managed.factory-test.cfg` (containing `test=other` for example) and you will see:
+
+```
+Configuration has changed/created:
+        felix.fileinstall.filename = file:/home/jbonofre/Workspace/karaf/assemblies/apache-karaf/target/apache-karaf-4.1.0-SNAPSHOT/etc/org.apache.karaf.examples.starter.osgi.config.managed.factory-test.cfg
+        service.factoryPid = org.apache.karaf.examples.starter.osgi.config.managed.factory
+        service.pid = org.apache.karaf.examples.starter.osgi.config.managed.factory.1c41dd91-b9ca-4127-a051-6dbc5b498d37
+        test = other
+```

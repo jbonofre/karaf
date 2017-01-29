@@ -29,6 +29,7 @@
     </parent>
 
     <artifactId>karaf-branding-starter</artifactId>
+    <name>Apache Karaf :: Examples :: Branding Starter</name>
     <packaging>bundle</packaging>
 
     <build>

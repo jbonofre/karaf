@@ -29,7 +29,7 @@
     </parent>
 
     <artifactId>karaf-osgi-starter-client</artifactId>
-    <version>4.1.0-SNAPSHOT</version>
+    <name>Apache Karaf :: Examples :: OSGi Starter :: Client</name>
     <packaging>bundle</packaging>
 
     <dependencies>

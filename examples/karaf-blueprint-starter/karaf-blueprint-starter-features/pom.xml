@@ -23,15 +23,14 @@
 
     <parent>
         <groupId>org.apache.karaf.examples</groupId>
-        <artifactId>karaf-jpa-starter</artifactId>
+        <artifactId>karaf-blueprint-starter</artifactId>
         <version>4.1.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>karaf-jpa-starter-features</artifactId>
-    <name>Apache Karaf :: Examples :: JPA Starter :: Features</name>
+    <artifactId>karaf-blueprint-starter-features</artifactId>
+    <name>Apache Karaf :: Examples :: Blueprint Starter :: Features</name>
     <packaging>pom</packaging>
-
 
     <build>
         <resources>
@@ -53,7 +52,6 @@
                     </execution>
                 </executions>
             </plugin>
-            <!--
             <plugin>
                 <groupId>org.apache.karaf.tooling</groupId>
                 <artifactId>karaf-maven-plugin</artifactId>
@@ -72,7 +70,6 @@
                     </execution>
                 </executions>
             </plugin>
-            -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>

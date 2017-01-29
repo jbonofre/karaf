@@ -29,7 +29,7 @@
     </parent>
 
     <artifactId>karaf-jpa-starter-provider</artifactId>
-    <version>4.1.0-SNAPSHOT</version>
+    <name>Apache Karaf :: Examples :: JPA Starter :: Provider</name>
     <packaging>bundle</packaging>
 
     <dependencies>

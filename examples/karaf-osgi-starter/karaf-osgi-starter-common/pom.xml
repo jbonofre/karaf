@@ -29,7 +29,7 @@
     </parent>
 
     <artifactId>karaf-osgi-starter-common</artifactId>
-    <version>4.1.0-SNAPSHOT</version>
+    <name>Apache Karaf :: Examples :: OSGi Starter :: Common</name>
     <packaging>bundle</packaging>
 
     <build>

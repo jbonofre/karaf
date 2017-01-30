@@ -1,4 +1,4 @@
-# Apache Karaf Blueprint Starter
+# Apache Karaf Blueprint Example
 
 ## Abstract
 

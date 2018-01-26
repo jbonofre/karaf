@@ -26,7 +26,7 @@ mvn clean install
 On a running Karaf instance, you register the ds example features repository with:
 
 ```
-karaf@root()> feature:repo-add mvn:org.apache.karaf.examples/karaf-ds-example-features/4.1.0-SNAPSHOT/xml
+karaf@root()> feature:repo-add mvn:org.apache.karaf.examples/karaf-ds-example-features/4.2.0-SNAPSHOT/xml
 ```
 
 Then you can install the `karaf-ds-example-provider` feature:

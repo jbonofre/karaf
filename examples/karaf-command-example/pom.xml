@@ -28,12 +28,15 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>karaf-ds-example</artifactId>
-    <name>Apache Karaf :: Examples :: DS/SCR</name>
+    <artifactId>karaf-command-example</artifactId>
+    <name>Apache Karaf :: Examples :: Shell Command</name>
     <packaging>pom</packaging>
 
     <modules>
-        <!-- <module>karaf-ds-example-common</module> -->
+        <module>karaf-command-example-api</module>
+        <module>karaf-command-example-provider</module>
+        <module>karaf-command-example-command</module>
+        <module>karaf-command-example-features</module>
     </modules>
 
 </project>

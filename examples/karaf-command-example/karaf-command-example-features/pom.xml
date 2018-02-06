@@ -23,13 +23,13 @@
 
     <parent>
         <groupId>org.apache.karaf.examples</groupId>
-        <artifactId>karaf-rest-example</artifactId>
+        <artifactId>karaf-command-example</artifactId>
         <version>4.2.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>karaf-rest-example-features</artifactId>
-    <name>Apache Karaf :: Examples :: REST :: Features</name>
+    <artifactId>karaf-command-example-features</artifactId>
+    <name>Apache Karaf :: Examples :: Shell Command :: Features</name>
     <packaging>pom</packaging>
 
     <build>

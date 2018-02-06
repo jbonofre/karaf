@@ -23,17 +23,27 @@
 
     <parent>
         <groupId>org.apache.karaf.examples</groupId>
-        <artifactId>apache-karaf-examples</artifactId>
+        <artifactId>karaf-command-example</artifactId>
         <version>4.2.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>karaf-ds-example</artifactId>
-    <name>Apache Karaf :: Examples :: DS/SCR</name>
-    <packaging>pom</packaging>
+    <artifactId>karaf-command-example-api</artifactId>
+    <name>Apache Karaf :: Examples :: Shell Command :: API</name>
+    <packaging>bundle</packaging>
 
-    <modules>
-        <!-- <module>karaf-ds-example-common</module> -->
-    </modules>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <configuration>
+                    <instructions>
+                        <Export-Package>org.apache.karaf.examples.command.api</Export-Package>
+                    </instructions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

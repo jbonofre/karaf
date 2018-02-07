@@ -35,10 +35,11 @@
 
     <modules>
         <module>karaf-blueprint-example</module>
+        <!-- TODO complete -->
         <module>karaf-ds-example</module>
         <module>karaf-branding-example</module>
         <module>karaf-command-example</module>
-        <!-- <module>karaf-mbean-starter</module> -->
+        <module>karaf-mbean-example</module>
         <!-- <module>karaf-url-namespace-handler-starter</module> -->
         <!-- <module>karaf-log-appender-starter</module> -->
         <!-- <module>karaf-deployer-starter</module> -->

@@ -37,7 +37,7 @@
         <module>karaf-blueprint-example</module>
         <module>karaf-ds-example</module>
         <module>karaf-branding-example</module>
-        <!-- <module>karaf-command-starter</module> -->
+        <module>karaf-command-example</module>
         <!-- <module>karaf-mbean-starter</module> -->
         <!-- <module>karaf-url-namespace-handler-starter</module> -->
         <!-- <module>karaf-log-appender-starter</module> -->

@@ -23,40 +23,22 @@
 
     <parent>
         <groupId>org.apache.karaf.examples</groupId>
-        <artifactId>karaf-rest-example-client</artifactId>
+        <artifactId>apache-karaf-examples</artifactId>
         <version>4.2.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>karaf-rest-example-client-http</artifactId>
-    <name>Apache Karaf :: Examples :: REST :: Client :: Java HTTP</name>
-    <packaging>bundle</packaging>
+    <artifactId>karaf-mbean-example</artifactId>
+    <name>Apache Karaf :: Examples :: MBean</name>
+    <packaging>pom</packaging>
 
-    <dependencies>
-        <dependency>
-            <groupId>javax.ws.rs</groupId>
-            <artifactId>javax.ws.rs-api</artifactId>
-            <version>2.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.karaf.examples</groupId>
-            <artifactId>karaf-rest-example-api</artifactId>
-            <version>4.2.0-SNAPSHOT</version>
-        </dependency>
-    </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>maven-bundle-plugin</artifactId>
-                <configuration>
-                    <instructions>
-                        <Import-Package>*</Import-Package>
-                    </instructions>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+    <modules>
+        <module>karaf-mbean-example-api</module>
+        <module>karaf-mbean-example-provider</module>
+        <module>karaf-mbean-example-simple</module>
+        <module>karaf-mbean-example-blueprint</module>
+        <module>karaf-mbean-example-scr</module>
+        <module>karaf-mbean-example-features</module>
+    </modules>
 
 </project>

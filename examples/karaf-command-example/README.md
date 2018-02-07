@@ -21,7 +21,7 @@ The build uses Apache Maven. Simply use:
 mvn clean install
 ```
 
-## Feature and Deployment
+## Features and Deployment
 
 On a running Karaf instance, register the features repository:
 

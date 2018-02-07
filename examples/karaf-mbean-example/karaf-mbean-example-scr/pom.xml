@@ -23,28 +23,24 @@
 
     <parent>
         <groupId>org.apache.karaf.examples</groupId>
-        <artifactId>karaf-command-example</artifactId>
+        <artifactId>karaf-mbean-example</artifactId>
         <version>4.2.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>karaf-command-example-provider</artifactId>
-    <name>Apache Karaf :: Examples :: Shell Command :: Service Provider</name>
+    <artifactId>karaf-mbean-example-scr</artifactId>
+    <name>Apache Karaf :: Examples :: MBean :: SCR</name>
     <packaging>bundle</packaging>
 
     <dependencies>
         <dependency>
             <groupId>org.apache.karaf.examples</groupId>
-            <artifactId>karaf-command-example-api</artifactId>
+            <artifactId>karaf-mbean-example-api</artifactId>
             <version>4.2.0-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.karaf</groupId>
-            <artifactId>org.apache.karaf.util</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.osgi</groupId>
-            <artifactId>osgi.core</artifactId>
+            <artifactId>osgi.cmpn</artifactId>
             <version>6.0.0</version>
         </dependency>
     </dependencies>
@@ -54,16 +50,6 @@
             <plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
-                <configuration>
-                    <instructions>
-                        <Bundle-Activator>org.apache.karaf.examples.command.provider.Activator</Bundle-Activator>
-                        <Private-Package>
-                            org.apache.karaf.examples.command.provider,
-                            org.apache.karaf.util.tracker,
-                            org.apache.karaf.util.tracker.annotation
-                        </Private-Package>
-                    </instructions>
-                </configuration>
             </plugin>
         </plugins>
     </build>

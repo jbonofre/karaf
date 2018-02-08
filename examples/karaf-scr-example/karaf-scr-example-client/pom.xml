@@ -23,17 +23,35 @@
 
     <parent>
         <groupId>org.apache.karaf.examples</groupId>
-        <artifactId>apache-karaf-examples</artifactId>
+        <artifactId>karaf-scr-example</artifactId>
         <version>4.2.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>karaf-ds-example</artifactId>
-    <name>Apache Karaf :: Examples :: DS/SCR</name>
-    <packaging>pom</packaging>
+    <artifactId>karaf-scr-example-client</artifactId>
+    <name>Apache Karaf :: Examples :: SCR :: Client</name>
+    <packaging>bundle</packaging>
 
-    <modules>
-        <!-- <module>karaf-ds-example-common</module> -->
-    </modules>
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.karaf.examples</groupId>
+            <artifactId>karaf-scr-example-api</artifactId>
+            <version>4.2.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>osgi.cmpn</artifactId>
+            <version>6.0.0</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

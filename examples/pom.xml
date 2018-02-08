@@ -46,7 +46,7 @@
         <!-- <module>karaf-jaas-config-starter</module> -->
         <!-- <module>karaf-jaas-login-module-starter</module> -->
         <!-- <module>karaf-encryption-starter</module> -->
-        <!-- <module>karaf-servlet-starter</module> -->
+        <module>karaf-servlet-example</module>
         <!-- <module>karaf-war-starter</module> -->
         <!-- <module>karaf-jndi-starter</module> -->
         <!-- <module>karaf-jdbc-starter</module> -->

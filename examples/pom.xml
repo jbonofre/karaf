@@ -53,7 +53,7 @@
         <module>karaf-jpa-example</module>
         <!-- <module>karaf-cdi-starter</module> -->
         <module>karaf-rest-example</module>
-        <!-- <module>karaf-soap-starter</module> -->
+        <module>karaf-soap-example</module>
         <!-- <module>karaf-camel-starter</module> -->
         <!-- <module>karaf-features-example</module> -->
         <!-- <module>karaf-profile-starter</module> -->

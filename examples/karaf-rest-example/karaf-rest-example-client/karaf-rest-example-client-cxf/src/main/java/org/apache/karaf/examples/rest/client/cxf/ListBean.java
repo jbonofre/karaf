@@ -55,8 +55,18 @@ public class ListBean {
             
             while (running) {
                 try {
-                    System.out.println("Call " + client.getBaseURI() + "/1");
-                    Booking booking = client.replacePath("/1").accept(MediaType.APPLICATION_JSON)
+                    // create booking with id = 1
+                    System.out.println("Call POST id=1 " + client.getBaseURI());
+                    Booking booking = new Booking();
+                    booking.setId(new Long(1));
+                    booking.setCustomer("Obiwan Kenobi");
+                    booking.setFlight("AF3030");
+                    client.header("Content-Type", "application/json");
+                    client.accept(MediaType.APPLICATION_JSON).post(booking);
+                    
+                    // get booking with id = 1
+                    System.out.println("Call GET " + client.getBaseURI() + "/1");
+                    booking = client.replacePath("/1").accept(MediaType.APPLICATION_JSON)
                             .get(Booking.class);
                     
                     if (booking != null) {
@@ -67,12 +77,65 @@ public class ListBean {
                         System.out.println("Response is empty");
                     }
                     
-                    System.out.println("Call " + client.getBaseURI() + "/all");
-                    List<Booking> response = client.replacePath("/all").accept(MediaType.APPLICATION_JSON)
+                    // create booking with id = 2
+                    System.out.println("Call POST id=2 " + client.getBaseURI());
+                    booking = new Booking();
+                    booking.setId(new Long(2));
+                    booking.setCustomer("Luke Skywalker");
+                    booking.setFlight("AF3030");
+                    client.header("Content-Type", "application/json");
+                    client.replacePath("/").accept(MediaType.APPLICATION_JSON).post(booking);
+                    
+                    // get booking with id = 2
+                    System.out.println("Call GET " + client.getBaseURI() + "/2");
+                    booking = client.replacePath("/2").accept(MediaType.APPLICATION_JSON)
+                            .get(Booking.class);
+                    
+                    if (booking != null) {
+                        System.out.println(booking.getId() + " | "
+                                + booking.getCustomer() + " | "
+                                + booking.getFlight() + "\n");
+                    } else {
+                        System.out.println("Response is empty");
+                        booking = new Booking();
+                    }
+                    
+                    // update booking with id = 2
+                    System.out.println("Call PUT id=2 " + client.getBaseURI());
+                    booking = new Booking();
+                    booking.setId(new Long(2));
+                    booking.setCustomer("Luke Skywalker");
+                    booking.setFlight("AF1234");
+                    client.header("Content-Type", "application/json");
+                    client.replacePath("/").accept(MediaType.APPLICATION_JSON).put(booking);
+                    
+                    // get all bookings
+                    System.out.println("Call GET " + client.getBaseURI() + "/");
+                    List<Booking> response = client.replacePath("/").accept(MediaType.APPLICATION_JSON)
                             .get(new GenericType<List<Booking>>() {});
                     
                     if (!response.isEmpty()) {
-                        
+                        StringBuilder builder = new StringBuilder();
+                        for (Booking element : response) {
+                            builder.append(element.getId()).append(" | ")
+                                   .append(element.getCustomer()).append(" | ")
+                                   .append(element.getFlight()).append("\n");
+                        }
+                        System.out.println(builder.toString());
+                    } else {
+                        System.out.println("Response is empty");
+                    }
+                    
+                    // delete booking with id = 2
+                    System.out.println("Call DELETE " + client.getBaseURI() + "/2");
+                    client.replacePath("/2").accept(MediaType.APPLICATION_JSON).delete();
+                    
+                    // get all bookings
+                    System.out.println("Call " + client.getBaseURI() + "/");
+                    response = client.replacePath("/").accept(MediaType.APPLICATION_JSON)
+                            .get(new GenericType<List<Booking>>() {});
+                    
+                    if (!response.isEmpty()) {
                         StringBuilder builder = new StringBuilder();
                         for (Booking element : response) {
                             builder.append(element.getId()).append(" | ")

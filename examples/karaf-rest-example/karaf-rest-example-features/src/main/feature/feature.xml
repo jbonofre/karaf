@@ -16,11 +16,16 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 -->
-<features name="karaf-rest-example-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.5.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.5.0">
+<features name="karaf-rest-example-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.4.0">
 
     <repository>mvn:org.apache.cxf.karaf/apache-cxf/${cxf.version}/xml/features</repository>
     
     <feature name="karaf-rest-example-common" version="${project.version}">
+        <bundle>mvn:org.apache.karaf.examples/karaf-rest-example-api/${project.version}</bundle>
+    </feature>
+
+    <feature name="karaf-rest-example-provider" version="${project.version}">
+        <feature version="${project.version}">karaf-rest-example-common</feature>
         <feature dependency="true">http</feature>
         <requirement>osgi.service;effective:=active;filter:=(objectClass=org.osgi.service.http.HttpService)</requirement>
         <feature dependency="true">aries-blueprint</feature>
@@ -30,11 +35,6 @@
         <bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-databind/${jackson.version}</bundle>
         <bundle dependency="true">mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-base/${jackson.version}</bundle>
         <bundle dependency="true">mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/${jackson.version}</bundle>
-        <bundle>mvn:org.apache.karaf.examples/karaf-rest-example-api/${project.version}</bundle>
-    </feature>
-
-    <feature name="karaf-rest-example-provider" version="${project.version}">
-        <feature version="${project.version}">karaf-rest-example-common</feature>
         <bundle>mvn:org.apache.karaf.examples/karaf-rest-example-provider/${project.version}</bundle>
     </feature>
 

@@ -39,7 +39,7 @@
         <module>karaf-branding-example</module>
         <module>karaf-command-example</module>
         <module>karaf-mbean-example</module>
-        <!-- <module>karaf-url-namespace-handler-starter</module> -->
+        <module>karaf-url-namespace-handler-example</module>
         <!-- <module>karaf-log-appender-starter</module> -->
         <!-- <module>karaf-deployer-starter</module> -->
         <!-- <module>karaf-jaas-config-starter</module> -->

@@ -16,8 +16,9 @@
  */
 package org.apache.karaf.examples.rest.provider;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -33,24 +34,15 @@ import org.apache.karaf.examples.rest.api.BookingService;
 
 @Path("/booking")
 public class BookingServiceRest implements BookingService {
+    
+    private final Map<Long, Booking> bookings = new HashMap<>();
 
     @Override
-    @Path("/all")
+    @Path("/")
     @Produces("application/json")
     @GET
-    public List<Booking> list() {
-        List<Booking> bookings = new ArrayList<>();
-        Booking booking = new Booking();
-        booking.setId(new Long(1));
-        booking.setCustomer("Obiwan Kenobi");
-        booking.setFlight("AF3030");
-        bookings.add(booking);
-        booking = new Booking();
-        booking.setId(new Long(2));
-        booking.setCustomer("Luke Skywalker");
-        booking.setFlight("AF3030");
-        bookings.add(booking);
-        return bookings;
+    public Collection<Booking> list() {
+        return bookings.values();
     }
 
     @Override
@@ -58,11 +50,7 @@ public class BookingServiceRest implements BookingService {
     @Produces("application/json")
     @GET
     public Booking get(@PathParam("id") Long id) {
-        Booking booking = new Booking();
-        booking.setId(id);
-        booking.setCustomer("John Doo");
-        booking.setFlight("AF3030");
-        return booking;
+        return bookings.get(id);
     }
     
     @Override
@@ -70,6 +58,7 @@ public class BookingServiceRest implements BookingService {
     @Consumes("application/json")
     @POST
     public void add(Booking booking) {
+        bookings.put(booking.getId(), booking);
     }
 
     @Override
@@ -77,11 +66,14 @@ public class BookingServiceRest implements BookingService {
     @Consumes("application/json")
     @PUT
     public void update(Booking booking) {
+        bookings.remove(booking.getId());
+        bookings.put(booking.getId(), booking);
     }
 
     @Override
     @Path("/{pid}")
     @DELETE
     public void remove(@PathParam("id") Long id) {
+        bookings.remove(id);
     }
 }

@@ -16,14 +16,14 @@
  */
 package org.apache.karaf.examples.rest.api;
 
-import java.util.List;
+import java.util.Collection;
 
 /**
  * Simple interface describing the booking service.
  */
 public interface BookingService {
 
-    List<Booking> list();
+    Collection<Booking> list();
 
     Booking get(Long id);
 

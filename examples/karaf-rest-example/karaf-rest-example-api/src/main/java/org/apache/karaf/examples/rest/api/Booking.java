@@ -22,7 +22,6 @@ package org.apache.karaf.examples.rest.api;
 public class Booking {
 
     private Long id;
-
     private String customer;
     private String flight;
 

@@ -53,8 +53,7 @@ And the service client feature using Apache CXF:
 karaf@root()> feature:install karaf-rest-example-client-cxf
 ```
 
-And the service client feature:
+## Usage
 
-```
-karaf@root()> feature:install karaf-rest-example-client
-```
+Once you have install a client feature, a new "client" thread is started, adding and listing bookings directly in the 
+shell console using the REST service.

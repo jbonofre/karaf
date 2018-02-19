@@ -40,7 +40,7 @@
         <module>karaf-command-example</module>
         <module>karaf-mbean-example</module>
         <module>karaf-url-namespace-handler-example</module>
-        <!-- <module>karaf-log-appender-starter</module> -->
+        <module>karaf-log-appender-example</module>
         <!-- <module>karaf-deployer-starter</module> -->
         <!-- <module>karaf-jaas-config-starter</module> -->
         <!-- <module>karaf-jaas-login-module-starter</module> -->
@@ -57,6 +57,9 @@
         <module>karaf-scheduler-example</module>
         <!-- <module>karaf-camel-starter</module> -->
         <!-- <module>karaf-features-example</module> -->
+        <!-- <module>karaf-kar-example</module> -->
+        <!-- <module>karaf-distribution-example</module> -->
+        <!-- <module>karaf-itest-example</module> -->
         <!-- <module>karaf-profile-starter</module> -->
     </modules>
 

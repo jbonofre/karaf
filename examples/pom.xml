@@ -60,7 +60,7 @@
         <!-- <module>karaf-features-example</module> -->
         <!-- <module>karaf-kar-example</module> -->
         <!-- <module>karaf-distribution-example</module> -->
-        <!-- <module>karaf-itest-example</module> -->
+        <module>karaf-itest-example</module>
         <!-- <module>karaf-profile-starter</module> -->
     </modules>
 

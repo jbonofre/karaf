@@ -55,6 +55,7 @@
         <module>karaf-rest-example</module>
         <module>karaf-soap-example</module>
         <module>karaf-scheduler-example</module>
+        <module>karaf-maven-example</module>
         <!-- <module>karaf-camel-starter</module> -->
         <!-- <module>karaf-features-example</module> -->
         <!-- <module>karaf-kar-example</module> -->

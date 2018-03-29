@@ -37,8 +37,6 @@
         <dependency>
             <groupId>org.apache.karaf.itests</groupId>
             <artifactId>itests</artifactId>
-            <version>4.2.0-SNAPSHOT</version>
-            <classifier>tests</classifier>
             <scope>test</scope>
         </dependency>
         <!-- Define the Apache Karaf version to download and use for the test -->

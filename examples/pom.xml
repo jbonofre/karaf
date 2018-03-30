@@ -48,7 +48,7 @@
         <module>karaf-servlet-example</module>
         <!-- <module>karaf-war-starter</module> -->
         <!-- <module>karaf-jndi-starter</module> -->
-        <!-- <module>karaf-jdbc-starter</module> -->
+        <module>karaf-jdbc-example</module>
         <!-- <module>karaf-jms-starter</module> -->
         <module>karaf-jpa-example</module>
         <!-- <module>karaf-cdi-starter</module> -->

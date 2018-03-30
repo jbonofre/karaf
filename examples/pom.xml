@@ -42,6 +42,7 @@
         <module>karaf-url-namespace-handler-example</module>
         <module>karaf-log-appender-example</module>
         <module>karaf-deployer-example</module>
+        <module>karaf-dump-example</module>
         <!-- <module>karaf-jaas-config-starter</module> -->
         <!-- <module>karaf-jaas-login-module-starter</module> -->
         <!-- <module>karaf-encryption-starter</module> -->

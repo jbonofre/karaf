@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features name="examples" xmlns="http://karaf.apache.org/xmlns/features/v1.4.0">
+
+    <feature name="kar-example" version="1.0-SNAPSHOT">
+        <bundle>mvn:commons-lang/commons-lang/2.6</bundle>
+    </feature>
+
+</features>

@@ -30,7 +30,7 @@
 
     <artifactId>karaf-maven-example-kar</artifactId>
     <name>Apache Karaf :: Examples :: Maven :: KAR</name>
-    <packaging>kar</packaging>
+    <packaging>pom</packaging>
 
     <build>
         <plugins>
@@ -38,7 +38,18 @@
                 <groupId>org.apache.karaf.tooling</groupId>
                 <artifactId>karaf-maven-plugin</artifactId>
                 <version>${project.version}</version>
-                <extensions>true</extensions>
+                <executions>
+                    <execution>
+                        <id>kar</id>
+                        <goals>
+                            <goal>kar</goal>
+                        </goals>
+                        <configuration>
+                            <!-- <classifier>my</classifier> -->
+                            <featuresFile>${basedir}/src/features/features-repo.xml</featuresFile>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

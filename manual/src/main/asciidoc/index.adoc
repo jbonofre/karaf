@@ -94,40 +94,21 @@ include::user-guide/tuning.adoc[]
 
 [NOTE]
 ====
-The developer guide is currently under a refactoring. The "new" developer guide will document samples providing
-in the Karaf Container distribution, in order to have more practical recipes.
+The developer guide is currently under a refactoring. 
+You can find most of the developer guide topic in the examples folder
+of the Karaf standard distribution.
 ====
-
-include::developer-guide/developer-commands.adoc[]
 
 include::developer-guide/scripting.adoc[]
 
 include::developer-guide/connect.adoc[]
 
-include::developer-guide/branding.adoc[]
-
 include::developer-guide/extending.adoc[]
 
-include::developer-guide/karaf-maven-plugin.adoc[]
-
-include::developer-guide/custom-distribution.adoc[]
-
-include::developer-guide/services.adoc[]
-
-include::developer-guide/creating-bundles.adoc[]
-
-include::developer-guide/blueprint.adoc[]
-
-include::developer-guide/ds.adoc[]
-
 include::developer-guide/dev-cdi.adoc[]
-
-include::developer-guide/archetypes.adoc[]
 
 include::developer-guide/security-framework.adoc[]
 
 include::developer-guide/debugging.adoc[]
-
-include::developer-guide/writing-tests.adoc[]
 
 include::developer-guide/github-contributions.adoc[]

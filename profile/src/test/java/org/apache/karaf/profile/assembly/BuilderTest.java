@@ -91,7 +91,7 @@ public class BuilderTest {
 
         Builder builder = Builder.newInstance()
                 .staticFramework()
-                .profilesUris("jar:mvn:org.apache.karaf.demos.profiles/registry/4.0.0-SNAPSHOT!/")
+                .profilesUris("jar:mvn:org.apache.karaf.examples/karaf-example-profile-registry/4.2.0-SNAPSHOT!/")
                 .environment("static")
                 .profiles("karaf",
                           "example-loanbroker-bank1",

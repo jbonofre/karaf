@@ -139,8 +139,9 @@
         </dependency>
 
         <dependency>
-            <groupId>org.apache.karaf.demos.profiles</groupId>
-            <artifactId>registry</artifactId>
+            <groupId>org.apache.karaf.examples</groupId>
+            <artifactId>karaf-profile-example-registry</artifactId>
+            <version>${project.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

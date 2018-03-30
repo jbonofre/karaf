@@ -38,8 +38,9 @@
         <!-- The following examples requires a running Karaf instance -->
         <!-- <module>karaf-maven-example-deploy</module> -->
         <!-- <module>karaf-maven-example-client</module> -->
-        <module>karaf-maven-example-kar</module>
-        <module>karaf-maven-example-assembly</module>
+        <!-- Avoid circular dep in Karaf build -->
+        <!-- <module>karaf-maven-example-kar</module> -->
+        <!-- <module>karaf-maven-example-assembly</module> -->
     </modules>
 
 </project>

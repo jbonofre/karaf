@@ -13,7 +13,11 @@
  */
 package org.apache.karaf.itests;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 import static org.ops4j.pax.exam.CoreOptions.maven;
 import static org.ops4j.pax.exam.CoreOptions.mavenBundle;
 import static org.ops4j.pax.exam.karaf.options.KarafDistributionOption.configureConsole;
@@ -88,7 +92,7 @@ import org.slf4j.LoggerFactory;
 
 public class KarafTestSupport {
 
-    private static final EnumSet<org.apache.karaf.features.FeaturesService.Option> NO_AUTO_REFRESH = EnumSet.of(FeaturesService.Option.NoAutoRefreshBundles);
+    private static final EnumSet<FeaturesService.Option> NO_AUTO_REFRESH = EnumSet.of(FeaturesService.Option.NoAutoRefreshBundles);
     public static final String MIN_RMI_SERVER_PORT = "44444";
     public static final String MAX_RMI_SERVER_PORT = "66666";
     public static final String MIN_HTTP_PORT = "9080";
@@ -194,7 +198,7 @@ public class KarafTestSupport {
         }
 
         return new Option[]{
-            //KarafDistributionOption.debugConfiguration("8889", true),
+            //debugConfiguration("8889", true),
             karafDistributionConfiguration().frameworkUrl(karafUrl).name("Apache Karaf").unpackDirectory(new File("target/exam")),
             // enable JMX RBAC security, thanks to the KarafMBeanServerBuilder
             configureSecurity().disableKarafMBeanServerBuilder(),
@@ -417,7 +421,7 @@ public class KarafTestSupport {
                 throw new IllegalStateException(e);
             }
         }
-        Assert.fail("Manadatory bundle " + symbolicName + " not found.");
+        fail("Manadatory bundle " + symbolicName + " not found.");
         throw new IllegalStateException("Should not be reached");
     }
 
@@ -497,7 +501,7 @@ public class KarafTestSupport {
             }
         }
         
-        Assert.fail("Feature " + featureName + (featureVersion != null ? "/" + featureVersion : "") + " should be installed but is not");
+        fail("Feature " + featureName + (featureVersion != null ? "/" + featureVersion : "") + " should be installed but is not");
     }
 
     public void assertFeaturesInstalled(String ... expectedFeatures) throws Exception {
@@ -508,7 +512,7 @@ public class KarafTestSupport {
             installedFeatures.add(feature.getName());
         }
         String msg = "Expecting the following features to be installed : " + expectedFeaturesSet + " but found " + installedFeatures;
-        Assert.assertTrue(msg, installedFeatures.containsAll(expectedFeaturesSet));
+        assertTrue(msg, installedFeatures.containsAll(expectedFeaturesSet));
     }
 
     public void assertFeatureNotInstalled(String featureName) throws Exception {
@@ -529,7 +533,7 @@ public class KarafTestSupport {
         Feature[] features = featureService.listInstalledFeatures();
         for (Feature feature : features) {
             if (featureToAssert.equals(feature)) {
-                Assert.fail("Feature " + featureName + (featureVersion != null ? "/" + featureVersion : "") + " is installed whereas it should not be");
+                fail("Feature " + featureName + (featureVersion != null ? "/" + featureVersion : "") + " is installed whereas it should not be");
             }
         }
     }
@@ -539,15 +543,15 @@ public class KarafTestSupport {
     }
 
     public void assertContainsNot(String expectedPart, String actual) {
-        Assert.assertFalse("Should not contain '" + expectedPart + "' but was : " + actual, actual.contains(expectedPart));
+        assertFalse("Should not contain '" + expectedPart + "' but was : " + actual, actual.contains(expectedPart));
     }
 
     protected void assertBundleInstalled(String name) {
-        Assert.assertNotNull("Bundle " + name + " should be installed", findBundleByName(name));
+        assertNotNull("Bundle " + name + " should be installed", findBundleByName(name));
     }
 
     protected void assertBundleNotInstalled(String name) {
-        Assert.assertNull("Bundle " + name + " should not be installed", findBundleByName(name));
+        assertNull("Bundle " + name + " should not be installed", findBundleByName(name));
     }
 
     protected Bundle findBundleByName(String symbolicName) {

@@ -263,6 +263,7 @@
         <javassist.version>3.9.0.GA</javassist.version>
         <jetty.version>9.4.6.v20170531</jetty.version>
         <jline.version>3.6.2</jline.version>
+        <junit.version>4.12</junit.version>
         <jsw.version>3.2.3</jsw.version>
         <log4j.version>1.2.17</log4j.version>
         <maven.version>3.5.2</maven.version>
@@ -807,6 +808,11 @@
               <type>xml</type>
               <classifier>features</classifier>
               <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.karaf.itests</groupId>
+                <artifactId>itests</artifactId>
+                <version>${project.version}</version>
             </dependency>
 
             <dependency>
@@ -1769,6 +1775,16 @@
                 <artifactId>hibernate-validator</artifactId>
                 <version>${hibernate.validator.version}</version>
             </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.geronimo.specs</groupId>
+                <artifactId>geronimo-atinject_1.0_spec</artifactId>
+                <version>1.0</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -1776,7 +1792,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>

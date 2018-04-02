@@ -62,7 +62,7 @@
         <!-- <module>karaf-kar-example</module> -->
         <!-- <module>karaf-distribution-example</module> -->
         <module>karaf-itest-example</module>
-        <!-- <module>karaf-profile-starter</module> -->
+        <module>karaf-profile-example</module>
     </modules>
 
 </project>

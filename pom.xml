@@ -74,7 +74,7 @@
         <module>manual</module>
         <module>specs</module>
         <module>assemblies</module>
-        <module>demos</module>
+        <module>examples</module>
         <module>archetypes</module>
         <module>itests</module>
     </modules>
@@ -535,17 +535,6 @@
             </dependency>
 
             <dependency>
-                <groupId>org.apache.karaf.demos</groupId>
-                <artifactId>demos</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.karaf.demos.profiles</groupId>
-                <artifactId>registry</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-
-            <dependency>
                 <groupId>org.apache.karaf.features</groupId>
                 <artifactId>org.apache.karaf.features.extension</artifactId>
                 <version>${project.version}</version>
@@ -725,11 +714,6 @@
                 <version>${project.version}</version>
             </dependency>
 
-            <dependency>
-                <groupId>org.apache.karaf.demos</groupId>
-                <artifactId>web</artifactId>
-                <version>${project.version}</version>
-            </dependency>
             <dependency>
                 <groupId>org.apache.karaf.tooling.exam</groupId>
                 <artifactId>org.apache.karaf.tooling.exam.container</artifactId>

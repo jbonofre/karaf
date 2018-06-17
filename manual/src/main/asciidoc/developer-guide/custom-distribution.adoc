@@ -549,7 +549,6 @@ assembly descriptor, configured in POM above to be `src/main/descriptors/bin.xml
             <directory>target/dependencies/apache-karaf-${karaf.version}</directory>
             <outputDirectory>/</outputDirectory>
             <excludes>
-                <exclude>**/demos/**</exclude>
                 <exclude>bin/**</exclude>
                 <exclude>etc/system.properties</exclude>
                 <exclude>etc/users.properties</exclude>

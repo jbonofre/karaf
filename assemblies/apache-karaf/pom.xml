@@ -82,6 +82,7 @@
                     <include>RELEASE*</include>
                     <include>LICENSE</include>
                     <include>NOTICE</include>
+                    <include>examples/**/*</include>
                 </includes>
             </resource>
         </resources>

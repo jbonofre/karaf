@@ -45,5 +45,5 @@ karaf@root()> feature:install karaf-blueprint-example-client
 When you install the client feature, you should see on the console:
 
 ```
-
+karaf@root()> 1794197511025182174 | John Doo | AF3030
 ```

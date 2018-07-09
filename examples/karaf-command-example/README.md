@@ -38,7 +38,7 @@ karaf@root()> feature:install karaf-command-example-provider
 The shell commands can be installed with the corresponding feature:
 
 ```
-karaf@root()> feature:install karaf-command-example-command
+karaf@root()> feature:install karaf-command-example
 ```
 
 ## Usage

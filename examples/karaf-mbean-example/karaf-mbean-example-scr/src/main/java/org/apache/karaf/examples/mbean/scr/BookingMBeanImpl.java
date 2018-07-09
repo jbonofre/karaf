@@ -19,6 +19,7 @@ package org.apache.karaf.examples.mbean.scr;
 import org.apache.karaf.examples.mbean.api.Booking;
 import org.apache.karaf.examples.mbean.api.BookingService;
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
 
 import javax.management.MBeanException;
 import javax.management.NotCompliantMBeanException;
@@ -30,6 +31,7 @@ import javax.management.openmbean.*;
 )
 public class BookingMBeanImpl extends StandardMBean implements BookingMBean {
 
+    @Reference
     private BookingService bookingService;
 
     public BookingMBeanImpl() throws NotCompliantMBeanException {

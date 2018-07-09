@@ -36,10 +36,11 @@
         <feature>pax-jdbc-pool-dbcp2</feature>
         <feature>jdbc</feature>
         <feature version="[2,3)">jpa</feature>
-        <feature version="4.3.6.Final">hibernate</feature>
+        <feature version="6.0.10.Final">hibernate</feature>
     </feature>
 
     <feature name="karaf-jpa-example-provider" version="${project.version}">
+        <feature>aries-blueprint</feature>
         <feature version="${project.version}">karaf-jpa-example-common</feature>
         <bundle>mvn:org.apache.karaf.examples/karaf-jpa-example-provider/${project.version}</bundle>
     </feature>

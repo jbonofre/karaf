@@ -25,6 +25,12 @@ On a running Karaf instance, register the features repository:
 karaf@root()> feature:repo-add mvn:org.apache.karaf.examples/karaf-url-namespace-handler-example-features/4.2.1-SNAPSHOT/xml
 ```
 
+Then, you can install the `karaf-url-namespace-handler-example` feature:
+
+```
+karaf@root()> feature:install karaf-url-namespace-handler-example
+```
+
 ## Usage
 
 Once you have installed the feature, you can use URL like `example:*` wrapping any already supported URL. When you use

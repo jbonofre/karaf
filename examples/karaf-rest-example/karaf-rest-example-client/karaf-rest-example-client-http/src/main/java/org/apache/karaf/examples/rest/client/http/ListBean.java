@@ -41,7 +41,7 @@ public class ListBean {
 
     private class ListThread extends Thread {
         
-        private static final String GET_ALL_URL = "http://localhost:8181/cxf/example/booking/all";
+        private static final String GET_ALL_URL = "http://localhost:8181/cxf/example/booking/";
         
         private volatile boolean running = true;
 

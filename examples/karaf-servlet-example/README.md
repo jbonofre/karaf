@@ -29,6 +29,12 @@ mvn clean install
 
 ## Features and Deployment
 
+On a running Karaf instance, you register the example features repository with:
+
+```
+karaf@root()> feature:repo-add mvn:org.apache.karaf.examples/karaf-servlet-example-features/4.2.1-SNAPSHOT/xml
+```
+
 The `karaf-servlet-example-annotation` feature installs the required features (HTTP service) and register the servlet using
 Servlet 3.0 annotation:
 

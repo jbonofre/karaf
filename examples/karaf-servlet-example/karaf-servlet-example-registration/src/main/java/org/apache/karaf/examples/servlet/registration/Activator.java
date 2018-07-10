@@ -24,36 +24,36 @@ import org.osgi.util.tracker.ServiceTracker;
 
 public class Activator implements BundleActivator {
 
-        private ServiceTracker httpServiceTracker;
+    private ServiceTracker httpServiceTracker;
 
-        @Override
-        public void start(BundleContext bundleContext) throws Exception {
-                httpServiceTracker = new ServiceTracker(bundleContext, HttpService.class.getName(), null) {
-                        @Override
-                        public Object addingService(ServiceReference ref) {
-                                HttpService httpService = (HttpService) bundleContext.getService(ref);
-                                try {
-                                        httpService.registerServlet("/servlet-example", new ExampleServlet(), null, null);
-                                } catch (Exception e) {
-                                        throw new RuntimeException(e);
-                                }
-                                return httpService;
-                        }
+    @Override
+    public void start(BundleContext bundleContext) throws Exception {
+        httpServiceTracker = new ServiceTracker(bundleContext, HttpService.class.getName(), null) {
+            @Override
+            public Object addingService(ServiceReference ref) {
+                HttpService httpService = (HttpService) bundleContext.getService(ref);
+                try {
+                    httpService.registerServlet("/servlet-example", new ExampleServlet(), null, null);
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+                return httpService;
+            }
 
-                        public void removedService(ServiceReference ref, Object service) {
-                                try {
-                                        ((HttpService) service).unregister("/servlet-example");
-                                } catch (Exception e) {
-                                        throw new RuntimeException(e);
-                                }
-                        }
-                };
-                httpServiceTracker.open();
-        }
+            public void removedService(ServiceReference ref, Object service) {
+                try {
+                    ((HttpService) service).unregister("/servlet-example");
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        };
+        httpServiceTracker.open();
+    }
 
-        @Override
-        public void stop(BundleContext bundleContext) throws Exception {
-                httpServiceTracker.close();
-        }
+    @Override
+    public void stop(BundleContext bundleContext) throws Exception {
+        httpServiceTracker.close();
+    }
 
 }

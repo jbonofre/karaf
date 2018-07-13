@@ -71,7 +71,7 @@ public class BookingServiceRest implements BookingService {
     }
 
     @Override
-    @Path("/{pid}")
+    @Path("/{id}")
     @DELETE
     public void remove(@PathParam("id") Long id) {
         bookings.remove(id);

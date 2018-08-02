@@ -1,2 +1,2 @@
 #!/bin/bash
-dockerClient build --cache-from openjdk:8-jre --tag karaf/karaf-dockerClient:4.2.0 .
+docker build --cache-from openjdk:8-jre --tag karaf/karaf-docker:4.2.0 .

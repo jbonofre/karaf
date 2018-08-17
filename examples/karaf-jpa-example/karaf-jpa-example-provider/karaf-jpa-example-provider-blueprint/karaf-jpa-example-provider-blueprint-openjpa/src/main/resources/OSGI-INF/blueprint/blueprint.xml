@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+           xmlns:jpa="http://aries.apache.org/xmlns/jpa/v2.0.0"
+           xmlns:tx="http://aries.apache.org/xmlns/transactions/v1.2.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 https://osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd">
 
     <!--
 
@@ -19,23 +23,10 @@
         limitations under the License.
     -->
 
-    <modelVersion>4.0.0</modelVersion>
+    <jpa:enable />
+    <tx:enable-annotations />
 
-    <parent>
-        <groupId>org.apache.karaf.examples</groupId>
-        <artifactId>karaf-jpa-example</artifactId>
-        <version>4.2.1-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath>
-    </parent>
+    <service ref="bookingService" interface="org.apache.karaf.examples.jpa.BookingService" />
+    <bean id="bookingService" class="org.apache.karaf.examples.jpa.provider.blueprint.openjpa.BookingServiceImpl"/>
 
-    <artifactId>karaf-jpa-example-provider</artifactId>
-    <name>Apache Karaf :: Examples :: JPA :: Provider</name>
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>karaf-jpa-example-provider-api</module>
-        <module>karaf-jpa-example-provider-ds</module>
-        <module>karaf-jpa-example-provider-blueprint</module>
-    </modules>
-
-</project>
+</blueprint>

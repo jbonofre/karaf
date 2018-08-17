@@ -36,18 +36,49 @@
         <feature>pax-jdbc-h2</feature>
         <feature>pax-jdbc-pool-dbcp2</feature>
         <feature>jdbc</feature>
+        <feature dependency="true">aries-blueprint</feature>
         <feature version="[2,3)">jpa</feature>
+        <feature version="[2,3)">eclipselink</feature>
         <feature version="[5,6)">hibernate</feature>
+        <!--<feature version="[3,4)">openjpa3</feature>-->
+        <bundle>mvn:org.apache.karaf.examples/karaf-jpa-example-provider-api/${project.version}</bundle>
     </feature>
 
-    <feature name="karaf-jpa-example-provider" version="${project.version}">
-        <feature dependency="true">aries-blueprint</feature>
+    <!-- Blueprint Providers -->
+    <feature name="karaf-jpa-example-provider-blueprint-hibernate" version="${project.version}">
         <feature version="${project.version}">karaf-jpa-example-common</feature>
-        <bundle>mvn:org.apache.karaf.examples/karaf-jpa-example-provider/${project.version}</bundle>
+        <bundle>mvn:org.apache.karaf.examples/karaf-jpa-example-provider-blueprint-hibernate/${project.version}</bundle>
     </feature>
+    <feature name="karaf-jpa-example-provider-blueprint-eclipselink" version="${project.version}">
+        <feature version="${project.version}">karaf-jpa-example-common</feature>
+        <bundle>mvn:org.apache.karaf.examples/karaf-jpa-example-provider-blueprint-eclipselink/${project.version}</bundle>
+    </feature>
+    <!-- Waiting for javax.persistence 2.2 compatibility
+    <feature name="karaf-jpa-example-provider-blueprint-openjpa" version="${project.version}">
+        <feature version="${project.version}">karaf-jpa-example-common</feature>
+        <bundle>mvn:org.apache.karaf.examples/karaf-jpa-example-provider-blueprint-openjpa/${project.version}</bundle>
+    </feature>-->
+
+    <!-- Declarative Service Providers -->
+    <feature name="karaf-jpa-example-provider-ds-hibernate" version="${project.version}">
+        <feature>scr</feature>
+        <feature version="${project.version}">karaf-jpa-example-common</feature>
+        <bundle>mvn:org.apache.karaf.examples/karaf-jpa-example-provider-ds-hibernate/${project.version}</bundle>
+    </feature>
+    <feature name="karaf-jpa-example-provider-ds-eclipselink" version="${project.version}">
+        <feature>scr</feature>
+        <feature version="${project.version}">karaf-jpa-example-common</feature>
+        <bundle>mvn:org.apache.karaf.examples/karaf-jpa-example-provider-ds-eclipselink/${project.version}</bundle>
+    </feature>
+    <!-- Waiting for javax.persistence 2.2 compatibility
+    <feature name="karaf-jpa-example-provider-ds-openjpa" version="${project.version}">
+        <feature>scr</feature>
+        <feature version="${project.version}">karaf-jpa-example-common</feature>
+        <bundle>mvn:org.apache.karaf.examples/karaf-jpa-example-provider-ds-openjpa/${project.version}</bundle>
+    </feature>-->
 
     <feature name="karaf-jpa-example-command" version="${project.version}">
-        <feature version="${project.version}">karaf-jpa-example-provider</feature>
+        <feature version="${project.version}">karaf-jpa-example-common</feature>
         <bundle>mvn:org.apache.karaf.examples/karaf-jpa-example-command/${project.version}</bundle>
     </feature>
 

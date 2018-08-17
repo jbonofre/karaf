@@ -38,14 +38,34 @@ public class JpaExampleTest extends KarafTestSupport {
         // adding jpa example features repository
         addFeaturesRepository("mvn:org.apache.karaf.examples/karaf-jpa-example-features/" + System.getProperty("karaf.version") + "/xml");
 
-        // install the karaf-jpa-example-datasource & karaf-jpa-example-provider features
+        // install the karaf-jpa-example-datasource & karaf-jpa-example-common
         executeCommand("feature:install karaf-jpa-example-datasource", ADMIN_ROLES);
-        executeCommand("feature:install karaf-jpa-example-provider", ADMIN_ROLES);
-        assertServiceAvailable(BookingService.class);
+        executeCommand("feature:install karaf-jpa-example-common", ADMIN_ROLES);
 
+        // declarative service EclipseLink
+        executeCommand("feature:install karaf-jpa-example-provider-ds-eclipselink", ADMIN_ROLES);
         // install the karaf-jpa-example-command feature
         installAndAssertFeature("karaf-jpa-example-command");
+        testCommand();
+        executeCommand("feature:uninstall karaf-jpa-example-provider-ds-eclipselink", ADMIN_ROLES);
 
+        // declarative service Hibernate
+        executeCommand("feature:install karaf-jpa-example-provider-ds-hibernate", ADMIN_ROLES);
+        testCommand();
+        executeCommand("feature:uninstall karaf-jpa-example-provider-ds-hibernate", ADMIN_ROLES);
+
+        // blueprint EclipseLink
+        executeCommand("feature:install karaf-jpa-example-provider-blueprint-eclipselink", ADMIN_ROLES);
+        testCommand();
+        executeCommand("feature:uninstall karaf-jpa-example-provider-blueprint-eclipselink", ADMIN_ROLES);
+
+        // blueprint Hibernate
+        executeCommand("feature:install karaf-jpa-example-provider-blueprint-hibernate", ADMIN_ROLES);
+        testCommand();
+        executeCommand("feature:uninstall karaf-jpa-example-provider-blueprint-hibernate", ADMIN_ROLES);
+    }
+
+    private void testCommand() {
         // add booking
         executeCommand("booking:add Foo AF520");
         // list booking

@@ -16,7 +16,6 @@
     specific language governing permissions and limitations
     under the License.
 -->
-
 # Apache Karaf Examples
 
 The Apache Karaf Examples provide different starting point showing how to implement concrete use cases leveraging Apache Karaf capabilities.

@@ -75,6 +75,7 @@
         <module>manual</module>
         <module>specs</module>
         <module>assemblies</module>
+        <module>devx</module>
         <module>examples</module>
         <module>archetypes</module>
         <module>itests</module>

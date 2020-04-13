@@ -37,6 +37,7 @@
         <!-- <module>extensions/maven</module> -->
         <!-- <module>extensions/gradle</module> -->
         <!-- <module>extensions/cli</module> -->
+        <!-- <module>extensions/junit</module> -->
         <module>dependencies</module>
         <module>examples</module>
     </modules>

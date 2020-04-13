@@ -16,6 +16,9 @@
 
     <modules>
         <module>first</module>
+        <module>inner-service</module>
+        <!-- <module>rest-service</module> -->
+        <!-- <module>multi</module> -->
     </modules>
 
 </project>

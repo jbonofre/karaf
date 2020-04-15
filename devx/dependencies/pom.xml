@@ -32,39 +32,12 @@
     <artifactId>karaf-devx-dependencies</artifactId>
     <packaging>pom</packaging>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.osgi</groupId>
-                <artifactId>osgi.core</artifactId>
-                <version>7.0.0</version>
-            </dependency>
-            <dependency>
-                <groupId>org.osgi</groupId>
-                <artifactId>osgi.cmpn</artifactId>
-                <version>7.0.0</version>
-            </dependency>
-            <dependency>
-                <groupId>org.osgi</groupId>
-                <artifactId>osgi.annotation</artifactId>
-                <version>7.0.0</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.osgi</groupId>
-            <artifactId>osgi.core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.osgi</groupId>
-            <artifactId>osgi.cmpn</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.osgi</groupId>
-            <artifactId>osgi.annotation</artifactId>
-        </dependency>
-    </dependencies>
+    <modules>
+        <!--
+        <module>rest</module>
+        <module>persistence</module>
+        <module>monitoring</module>
+        -->
+    </modules>
 
 </project>

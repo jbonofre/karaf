@@ -22,7 +22,7 @@
     -->
 
     <parent>
-        <artifactId>devx</artifactId>
+        <artifactId>karaf</artifactId>
         <groupId>org.apache.karaf</groupId>
         <version>4.3.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
@@ -30,30 +30,26 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.apache.karaf.devx</groupId>
-    <artifactId>devx-dependencies-rest</artifactId>
-    <packaging>pom</packaging>
-
-    <properties>
-        <javax.ws.rs>2.1.1</javax.ws.rs>
-        <cxf.version>3.3.6</cxf.version>
-    </properties>
+    <artifactId>rest-service</artifactId>
 
     <dependencies>
         <dependency>
-            <groupId>javax.ws.rs</groupId>
-            <artifactId>javax.ws.rs-api</artifactId>
-            <version>${javax.ws.rs}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.cxf</groupId>
-            <artifactId>cxf-rt-rs-security-cors</artifactId>
-            <version>${cxf.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.cxf</groupId>
-            <artifactId>cxf-rt-rs-service-description-openapi-v3</artifactId>
-            <version>${cxf.version}</version>
+            <groupId>org.apache.karaf.devx</groupId>
+            <artifactId>devx-dependencies-rest</artifactId>
+            <version>${project.version}</version>
+            <type>pom</type>
         </dependency>
     </dependencies>
+
+    <build>
+        <!--
+        <plugins>
+            <plugin>
+                <groupId>org.apache.karaf.devx</groupId>
+                <artifactId>karaf-devx-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+        -->
+    </build>
 
 </project>

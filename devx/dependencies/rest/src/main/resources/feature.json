@@ -1,0 +1,47 @@
+{
+  "repository": [
+    {
+      "name": "cxf",
+      "uri": "mvn:org.apache.cxf.karaf/apache-cxf/${cxf.version}/xml/features"
+    }
+  ],
+  "feature": [
+    {
+      "name": "karaf-devx-rest",
+      "version": "${project.version}",
+      "description": "Karaf DevX rest feature",
+      "feature": [
+        {
+          "name": "cxf-jaxrs",
+          "version": "${cxf.version}"
+        }
+      ],
+      "bundle": [
+        {
+          "value": "mvn:com.fasterxml.jackson.core/jackson-core/${jackson.version}",
+          "dependency": true
+        },
+        {
+          "value": "mvn:com.fasterxml.jackson.core/jackson-databind/${jackson.version}",
+          "dependency": true
+        },
+        {
+          "value": "mvn:com.fasterxml.jackson.core/jackson-annotations/${jackson.version}",
+          "dependency": true
+        },
+        {
+          "value": "mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-base/${jackson.version}",
+          "dependency": true
+        },
+        {
+          "value": "mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/${jackson.version}",
+          "dependency": true
+        },
+        {
+          "value": "mvn:org.apache.geronimo.specs/geronimo-json_1.1_spec/${geronimo.jsonspec.version}",
+          "dependency": true
+        }
+      ]
+    }
+  ]
+}

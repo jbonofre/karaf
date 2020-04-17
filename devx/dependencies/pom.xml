@@ -31,6 +31,7 @@
     <groupId>org.apache.karaf.devx</groupId>
     <artifactId>karaf-devx-dependencies</artifactId>
     <packaging>pom</packaging>
+    <name>Apache Karaf :: DevX :: Dependencies</name>
 
     <properties>
         <javax.ws.rs>2.1.1</javax.ws.rs>

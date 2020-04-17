@@ -30,6 +30,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>devx-dependencies-rest</artifactId>
+    <name>Apache Karaf :: DevX :: Dependencies :: Rest</name>
 
     <dependencies>
         <dependency>

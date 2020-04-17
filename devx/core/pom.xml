@@ -12,6 +12,7 @@
 
     <groupId>org.apache.karaf.devx</groupId>
     <artifactId>devx-core</artifactId>
+    <name>Apache Karaf :: DevX :: Core</name>
 
     <dependencies>
         <dependency>

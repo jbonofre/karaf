@@ -13,6 +13,7 @@
     <groupId>org.apache.karaf.devx</groupId>
     <artifactId>extensions</artifactId>
     <packaging>pom</packaging>
+    <name>Apache Karaf :: DevX :: Extensions</name>
 
     <modules>
         <!--

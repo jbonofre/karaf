@@ -12,6 +12,7 @@
 
     <groupId>org.apache.karaf.devx.examples</groupId>
     <artifactId>inner-service</artifactId>
+    <name>Apache Karaf :: DevX :: Examples :: Inner service</name>
 
     <dependencies>
         <dependency>

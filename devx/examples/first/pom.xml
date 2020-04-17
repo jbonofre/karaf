@@ -13,6 +13,7 @@
 
     <groupId>org.apache.karaf.devx.examples</groupId>
     <artifactId>first</artifactId>
+    <name>Apache Karaf :: DevX :: Examples :: First</name>
 
     <dependencies>
         <dependency>

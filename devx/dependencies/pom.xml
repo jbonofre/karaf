@@ -32,6 +32,31 @@
     <artifactId>karaf-devx-dependencies</artifactId>
     <packaging>pom</packaging>
 
+    <properties>
+        <javax.ws.rs>2.1.1</javax.ws.rs>
+        <cxf.version>3.3.6</cxf.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>javax.ws.rs</groupId>
+                <artifactId>javax.ws.rs-api</artifactId>
+                <version>${javax.ws.rs}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-rt-rs-security-cors</artifactId>
+                <version>${cxf.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-rt-rs-service-description-openapi-v3</artifactId>
+                <version>${cxf.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
         <dependency>
             <groupId>org.apache.karaf.devx</groupId>

@@ -1,0 +1,43 @@
+{
+  "repository": [
+    {
+      "name": "openjpa",
+      "uri": "mvn:org.apache.openjpa/openjpa-features/${openjpa.version}/xml/features"
+    }
+  ],
+  "feature": [
+    {
+      "name": "karaf-devx-persistence",
+      "version": "${project.version}",
+      "description": "Karaf DevX persistence feature",
+      "feature": [
+        {
+          "name": "jndi"
+        },
+        {
+          "name": "pax-jdbc-config"
+        },
+        {
+          "name": "pax-jdbc-postgresql"
+        },
+        {
+          "name": "pax-jdbc-pool-hikaricp"
+        },
+        {
+          "name": "jdbc"
+        },
+        {
+          "name": "transaction"
+        },
+        {
+          "name": "jpa",
+          "version": "${devx.jpa.version}"
+        },
+        {
+          "name": "openjpa",
+          "version": "${devx.openjpa.version}"
+        }
+      ]
+    }
+  ]
+}

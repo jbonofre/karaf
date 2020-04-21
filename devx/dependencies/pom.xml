@@ -34,8 +34,13 @@
     <name>Apache Karaf :: DevX :: Dependencies</name>
 
     <properties>
-        <javax.ws.rs>2.1.1</javax.ws.rs>
-        <cxf.version>3.3.6</cxf.version>
+        <devx.javax.ws.rs>2.1.1</devx.javax.ws.rs>
+        <devx.cxf.version>3.3.6</devx.cxf.version>
+        <devx.javax.persistence.version>2.2.1</devx.javax.persistence.version>
+        <devx.javax.transaction.version>1.3</devx.javax.transaction.version>
+        <devx.aries.jpa.version>2.7.2</devx.aries.jpa.version>
+        <devx.openjpa.version>3.1.1</devx.openjpa.version>
+        <devx.jpa.version>[2,3)</devx.jpa.version>
     </properties>
 
     <dependencyManagement>
@@ -43,17 +48,33 @@
             <dependency>
                 <groupId>javax.ws.rs</groupId>
                 <artifactId>javax.ws.rs-api</artifactId>
-                <version>${javax.ws.rs}</version>
+                <version>${devx.javax.ws.rs}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.cxf</groupId>
                 <artifactId>cxf-rt-rs-security-cors</artifactId>
-                <version>${cxf.version}</version>
+                <version>${devx.cxf.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.cxf</groupId>
                 <artifactId>cxf-rt-rs-service-description-openapi-v3</artifactId>
-                <version>${cxf.version}</version>
+                <version>${devx.cxf.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.eclipse.persistence</groupId>
+                <artifactId>javax.persistence</artifactId>
+                <version>${devx.javax.persistence.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.transaction</groupId>
+                <artifactId>javax.transaction-api</artifactId>
+                <version>${devx.javax.transaction.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.aries.jpa</groupId>
+                <artifactId>org.apache.aries.jpa.api</artifactId>
+                <version>${devx.aries.jpa.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -68,8 +89,8 @@
 
     <modules>
         <module>rest</module>
-        <!--
         <module>persistence</module>
+        <!--
         <module>monitoring</module>
         -->
     </modules>

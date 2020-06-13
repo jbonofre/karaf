@@ -40,6 +40,7 @@
         <module>main</module>
         <module>features</module>
         <module>kar</module>
+        <module>spring-boot</module>
         <module>bundle</module>
         <module>config</module>
         <module>instance</module>

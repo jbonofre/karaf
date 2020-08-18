@@ -18,6 +18,12 @@
  */
 package org.apache.karaf.main;
 
+import org.apache.felix.utils.properties.Properties;
+import org.apache.karaf.main.lock.SimpleFileLock;
+import org.apache.karaf.main.util.Utils;
+import org.apache.karaf.util.config.PropertiesLoader;
+import org.osgi.framework.Constants;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -27,13 +33,6 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Arrays;
 import java.util.UUID;
-
-import org.apache.felix.utils.properties.Properties;
-
-import org.apache.karaf.main.lock.SimpleFileLock;
-import org.apache.karaf.main.util.Utils;
-import org.apache.karaf.util.config.PropertiesLoader;
-import org.osgi.framework.Constants;
 
 public class ConfigProperties {
     /**
@@ -179,36 +178,36 @@ public class ConfigProperties {
      */
     private static final String PROPERTY_USE_LOCK = "karaf.lock";
 
-    File karafHome;
-    File karafBase;
-    File karafData;
-    File karafEtc;
-    File karafLog;
-    File karafInstances;
+    public File karafHome;
+    public File karafBase;
+    public File karafData;
+    public File karafEtc;
+    public File karafLog;
+    public File karafInstances;
     
-    Properties props;
-    String[] securityProviders;
-    int defaultStartLevel = 100;
-    int lockStartLevel = 1;
-    int lockDefaultBootLevel = 1;
-    int lockDelay;
-    int lockLostThreshold;
-    boolean lockSlaveBlock = false;
-    int shutdownTimeout = 5 * 60 * 1000;
-    boolean useLock;
-    String lockClass;
-    String frameworkFactoryClass;
-    URI frameworkBundle;
-    String defaultRepo;
-    String bundleLocations;
-    int defaultBundleStartlevel;
-    String pidFile;
-    int shutdownPort;
-    String shutdownHost;
-    String portFile;
-    String shutdownCommand;
-    String startupMessage;
-    boolean delayConsoleStart;
+    public Properties props;
+    public String[] securityProviders;
+    public int defaultStartLevel = 100;
+    public int lockStartLevel = 1;
+    public int lockDefaultBootLevel = 1;
+    public int lockDelay;
+    public int lockLostThreshold;
+    public boolean lockSlaveBlock = false;
+    public int shutdownTimeout = 5 * 60 * 1000;
+    public boolean useLock;
+    public String lockClass;
+    public String frameworkFactoryClass;
+    public URI frameworkBundle;
+    public String defaultRepo;
+    public String bundleLocations;
+    public int defaultBundleStartlevel;
+    public String pidFile;
+    public int shutdownPort;
+    public String shutdownHost;
+    public String portFile;
+    public String shutdownCommand;
+    public String startupMessage;
+    public boolean delayConsoleStart;
     boolean threadMonitoring;
     
     public ConfigProperties() throws Exception {
@@ -219,6 +218,69 @@ public class ConfigProperties {
         this.karafLog = Utils.getKarafDirectory(PROP_KARAF_LOG, ENV_KARAF_LOG, new File(karafData, "log"), true, true);
 
         this.karafInstances = Utils.getKarafDirectory(PROP_KARAF_INSTANCES, ENV_KARAF_INSTANCES, new File(karafHome, "instances"), false, false);
+
+        Package p = Package.getPackage("org.apache.karaf.main");
+        if (p != null && p.getImplementationVersion() != null) {
+            System.setProperty(PROP_KARAF_VERSION, p.getImplementationVersion());
+        }
+        System.setProperty(PROP_KARAF_HOME, karafHome.getPath());
+        System.setProperty(PROP_KARAF_BASE, karafBase.getPath());
+        System.setProperty(PROP_KARAF_DATA, karafData.getPath());
+        System.setProperty(PROP_KARAF_ETC, karafEtc.getPath());
+        System.setProperty(PROP_KARAF_LOG, karafLog.getPath());
+        System.setProperty(PROP_KARAF_INSTANCES, karafInstances.getPath());
+
+        System.setProperty(PROP_KARAF_HOME_URI, karafHome.toURI().toASCIIString());
+        System.setProperty(PROP_KARAF_BASE_URI, karafBase.toURI().toASCIIString());
+        System.setProperty(PROP_KARAF_DATA_URI, karafData.toURI().toASCIIString());
+        System.setProperty(PROP_KARAF_ETC_URI, karafEtc.toURI().toASCIIString());
+        System.setProperty(PROP_KARAF_LOG_URI, karafLog.toURI().toASCIIString());
+        System.setProperty(PROP_KARAF_INSTANCES_URI, karafInstances.toURI().toASCIIString());
+
+        if (!karafEtc.exists()) {
+            throw new FileNotFoundException("Karaf etc folder not found: " + karafEtc.getAbsolutePath());
+        }
+
+        configureSAAJForIBMJVM();
+        PropertiesLoader.loadSystemProperties(new File(karafEtc, SYSTEM_PROPERTIES_FILE_NAME));
+
+        this.props = PropertiesLoader.loadConfigProperties(new File(karafEtc, CONFIG_PROPERTIES_FILE_NAME));
+
+        this.securityProviders = getSecurityProviders();
+        this.defaultStartLevel = Integer.parseInt(props.getProperty(Constants.FRAMEWORK_BEGINNING_STARTLEVEL));
+        System.setProperty(Constants.FRAMEWORK_BEGINNING_STARTLEVEL, Integer.toString(this.defaultStartLevel));
+        this.lockStartLevel = Integer.parseInt(props.getProperty(PROPERTY_LOCK_LEVEL, Integer.toString(lockStartLevel)));
+        this.lockDelay = Integer.parseInt(props.getProperty(PROPERTY_LOCK_DELAY, DEFAULT_LOCK_DELAY));
+        this.lockLostThreshold = Integer.parseInt(props.getProperty(PROPERTY_LOCK_LOST_THRESHOLD, DEFAULT_LOCK_LOST_THRESHOLD));
+        this.lockSlaveBlock = Boolean.parseBoolean(props.getProperty(PROPERTY_LOCK_SLAVE_BLOCK, "false"));
+        this.props.setProperty(Constants.FRAMEWORK_BEGINNING_STARTLEVEL, Integer.toString(lockDefaultBootLevel));
+        this.shutdownTimeout = Integer.parseInt(props.getProperty(KARAF_SHUTDOWN_TIMEOUT, Integer.toString(shutdownTimeout)));
+        this.useLock = Boolean.parseBoolean(props.getProperty(PROPERTY_USE_LOCK, "true"));
+        this.lockClass = props.getProperty(PROPERTY_LOCK_CLASS, PROPERTY_LOCK_CLASS_DEFAULT);
+        this.frameworkFactoryClass = props.getProperty(KARAF_FRAMEWORK_FACTORY);
+        this.frameworkBundle = getFramework();
+        this.defaultRepo = System.getProperty(DEFAULT_REPO, "system");
+        this.bundleLocations = props.getProperty(BUNDLE_LOCATIONS);
+        this.defaultBundleStartlevel = getDefaultBundleStartLevel(60);
+        this.pidFile = props.getProperty(KARAF_PID_FILE, props.getProperty(KARAF_SHUTDOWN_PID_FILE));
+        this.shutdownPort = Integer.parseInt(props.getProperty(KARAF_SHUTDOWN_PORT, "0"));
+        this.shutdownHost = props.getProperty(KARAF_SHUTDOWN_HOST, "localhost");
+        this.portFile = props.getProperty(KARAF_SHUTDOWN_PORT_FILE);
+        this.shutdownCommand = props.getProperty(KARAF_SHUTDOWN_COMMAND);
+        this.startupMessage = props.getProperty(KARAF_STARTUP_MESSAGE, "Apache Karaf starting up. Press Enter to open the shell now...");
+        this.delayConsoleStart = Boolean.parseBoolean(props.getProperty(KARAF_DELAY_CONSOLE, "false"));
+        this.threadMonitoring = Boolean.parseBoolean(props.getProperty(KARAF_THREAD_MONITORING, "false"));
+        System.setProperty(KARAF_DELAY_CONSOLE, Boolean.toString(this.delayConsoleStart));
+    }
+
+    public ConfigProperties(File karafHome, File karafBase, File karafData, File karafEtc, File karafLog, File karafInstances) throws Exception {
+        this.karafHome = karafHome;
+        this.karafBase = karafBase;
+        this.karafData = karafData;
+        this.karafEtc = karafEtc;
+        this.karafLog = karafLog;
+
+        this.karafInstances = karafInstances;
 
         Package p = Package.getPackage("org.apache.karaf.main");
         if (p != null && p.getImplementationVersion() != null) {

@@ -18,6 +18,10 @@
  */
 package org.apache.karaf.main;
 
+import org.apache.karaf.main.util.BootstrapLogManager;
+import org.osgi.framework.BundleActivator;
+import org.osgi.framework.launch.Framework;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -27,10 +31,6 @@ import java.util.List;
 import java.util.jar.Manifest;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import org.apache.karaf.main.util.BootstrapLogManager;
-import org.osgi.framework.BundleActivator;
-import org.osgi.framework.launch.Framework;
 
 public class KarafActivatorManager {
 
@@ -48,7 +48,7 @@ public class KarafActivatorManager {
         BootstrapLogManager.configureLogger(LOG);
     }
 
-    void startKarafActivators() throws IOException {
+    public void startKarafActivators() throws IOException {
         Enumeration<URL> urls = classLoader.getResources("META-INF/MANIFEST.MF");
         while (urls != null && urls.hasMoreElements()) {
             URL url = urls.nextElement();
@@ -70,7 +70,7 @@ public class KarafActivatorManager {
         }
     }
 
-    void stopKarafActivators() {
+    public void stopKarafActivators() {
         for (BundleActivator activator : karafActivators) {
             try {
                 activator.stop(framework.getBundleContext());

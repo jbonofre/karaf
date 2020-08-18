@@ -16,8 +16,6 @@
  */
 package org.apache.karaf.main;
 
-import java.util.logging.Logger;
-
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.BundleEvent;
@@ -27,13 +25,15 @@ import org.osgi.framework.FrameworkListener;
 import org.osgi.framework.SynchronousBundleListener;
 import org.osgi.framework.startlevel.FrameworkStartLevel;
 
+import java.util.logging.Logger;
+
 /**
  * Watches the startup of the framework and displays a progress bar of the
  * number of bundles started / total. The listener will remove itself after the
  * desired start level is reached or the system property karaf.console.started
  * is set to true.
  */
-class StartupListener implements FrameworkListener, SynchronousBundleListener {
+public class StartupListener implements FrameworkListener, SynchronousBundleListener {
     private Logger log;
     private static final String SYSTEM_PROP_KARAF_CONSOLE_STARTED = "karaf.console.started";
     private long startTime;
@@ -41,7 +41,7 @@ class StartupListener implements FrameworkListener, SynchronousBundleListener {
 
     private final BundleContext context;
 
-    StartupListener(Logger log, BundleContext context) {
+    public StartupListener(Logger log, BundleContext context) {
         this.log = log;
         this.context = context;
         this.currentPercentage = 0;

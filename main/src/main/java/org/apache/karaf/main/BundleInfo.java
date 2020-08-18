@@ -20,10 +20,10 @@ package org.apache.karaf.main;
 
 import java.net.URI;
 
-class BundleInfo {
+public class BundleInfo {
 
-    URI uri;
+    public URI uri;
 
-    Integer startLevel;
+    public Integer startLevel;
 
 }

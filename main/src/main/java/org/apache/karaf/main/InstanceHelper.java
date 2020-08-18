@@ -18,6 +18,10 @@
  */
 package org.apache.karaf.main;
 
+import org.apache.felix.utils.properties.Properties;
+import org.apache.karaf.util.locks.FileLockUtils;
+import org.osgi.framework.launch.Framework;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
@@ -36,7 +40,7 @@ import org.osgi.framework.launch.Framework;
 
 public class InstanceHelper {
 
-    static void updateInstancePid(final File karafHome, final File karafBase, final boolean isStartingInstance) {
+    public static void updateInstancePid(final File karafHome, final File karafBase, final boolean isStartingInstance) {
         try {
             final String instanceName = System.getProperty("karaf.name");
             final String pid = isStartingInstance ? getPid() : "0";
@@ -119,7 +123,7 @@ public class InstanceHelper {
      }
 
     /* KARAF-5798: now called by Main#launch() */
-    static void writePid(String pidFile) {
+    public static void writePid(String pidFile) {
         try {
             if (pidFile != null) {
                 int pid = Integer.parseInt(getPid());
@@ -132,7 +136,7 @@ public class InstanceHelper {
         }
     }
 
-    static AutoCloseable setupShutdown(ConfigProperties config, Framework framework) {
+    public static AutoCloseable setupShutdown(ConfigProperties config, Framework framework) {
         try {
             int port = config.shutdownPort;
             String host = config.shutdownHost;

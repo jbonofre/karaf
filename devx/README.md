@@ -39,3 +39,9 @@ Other improvements are also:
 * support of features as JSON (in addition of XML)
 
 DevX is also targeting to support other kind of programming framework like CDI and Spring Boot.
+
+## DevX SDK
+
+* BOM providing developer annotations classified by extensions (@Header, @WebServlet, JAXRS annotations, packaging/distribution annotations, ...)
+* DevX plugin (Main, Maven, Grable, CLI) uses these annotations to create bundle and features (the developer just does a regular jar project)
+* JUnit 5 extension to easily test

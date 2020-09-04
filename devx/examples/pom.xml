@@ -19,6 +19,7 @@
         <module>first</module>
         <module>inner-service</module>
         <module>rest-service</module>
+        <module>runtime</module>
         <!-- <module>multi</module> -->
     </modules>
 

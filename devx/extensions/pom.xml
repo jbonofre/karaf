@@ -34,10 +34,10 @@
 
     <modules>
         <!--
-        <module>maven</module>
         <module>gradle</module>
         -->
         <module>junit</module>
+        <module>maven</module>
     </modules>
 
 </project>

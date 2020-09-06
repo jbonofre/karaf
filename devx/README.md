@@ -42,6 +42,7 @@ DevX is also targeting to support other kind of programming framework like CDI a
 
 ## DevX SDK
 
-* BOM providing developer annotations classified by extensions (@Header, @WebServlet, JAXRS annotations, packaging/distribution annotations, ...)
+* BOM providing developer annotations classified by extensions 
+* Dev Annotations. We have specific annotations for DevX (if the dev knows how to use existing annotations provided by third parties, he doesn't need DevX)
 * DevX plugin (Main, Maven, Grable, CLI) uses these annotations to create bundle and features (the developer just does a regular jar project)
 * JUnit 5 extension to easily test

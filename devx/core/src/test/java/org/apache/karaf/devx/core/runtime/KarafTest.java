@@ -26,7 +26,7 @@ public class KarafTest {
     @Test
     @Ignore("need to set home/data")
     public void testEmbedded() throws Exception {
-        Karaf karaf = new Karaf(new String[]{});
+        Karaf karaf = new Karaf.Builder().withArgs(new String[]{}).build();
         karaf.launch();
     }
 

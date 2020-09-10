@@ -30,8 +30,7 @@ public class Karaf {
 
     private Main karafMain;
 
-    public Karaf(String[] args) {
-        this.karafMain = new Main(args);
+    private Karaf(String[] args) {
     }
 
     /**
@@ -52,6 +51,28 @@ public class Karaf {
 
     public void launch() throws Exception {
         karafMain.launch();
+    }
+
+    public static class Builder {
+
+        private String[] args = new String[]{};
+        private String karafHome;
+
+        public Builder withArgs(String[] args) {
+            this.args = args;
+            return this;
+        }
+
+        public Builder withKarafHome(String karafHome) {
+            this.karafHome = karafHome;
+            return this;
+        }
+
+        public Karaf build() {
+            Karaf karaf = new Karaf(args);
+            return karaf;
+        }
+
     }
 
 }

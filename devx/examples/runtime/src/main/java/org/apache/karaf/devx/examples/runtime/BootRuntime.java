@@ -16,7 +16,6 @@
  */
 package org.apache.karaf.devx.examples.runtime;
 
-import org.apache.karaf.devx.core.runtime.KarafApplication;
 import org.apache.karaf.devx.core.runtime.annotation.Boot;
 import org.apache.karaf.devx.core.runtime.annotation.Config;
 import org.apache.karaf.devx.core.runtime.annotation.Datasource;

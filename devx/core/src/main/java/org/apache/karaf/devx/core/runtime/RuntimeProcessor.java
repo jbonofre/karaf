@@ -16,7 +16,7 @@
  */
 package org.apache.karaf.devx.core.runtime;
 
-import com.sun.tools.javac.code.Attribute;
+// import com.sun.tools.javac.code.Attribute;
 import jakarta.json.Json;
 import jakarta.json.JsonArrayBuilder;
 import jakarta.json.JsonBuilderFactory;
@@ -81,13 +81,13 @@ public class RuntimeProcessor extends AbstractProcessor {
                     if (values.containsKey("jre")) {
                         runtime.add("jre", VariableElement.class.cast(values.get("jre")).getSimpleName().toString());
                     }
-                    if (values.containsKey("frameworks")) {
-                        JsonArrayBuilder frameworks = builderFactory.createArrayBuilder();
-                        for (Attribute.Enum enm : (List<Attribute.Enum>) values.get("frameworks")) {
-                            frameworks.add(enm.value.getSimpleName().toString());
-                        }
-                        runtime.add("frameworks", frameworks);
-                    }
+                    //if (values.containsKey("frameworks")) {
+                        //JsonArrayBuilder frameworks = builderFactory.createArrayBuilder();
+                        //for (Attribute.Enum enm : (List<Attribute.Enum>) values.get("frameworks")) {
+                        //    frameworks.add(enm.value.getSimpleName().toString());
+                        //}
+                        //runtime.add("frameworks", frameworks);
+                    //}
                     if (values.containsKey("features")) {
                         JsonArrayBuilder features = builderFactory.createArrayBuilder();
                         for (AnnotationMirror r : (List<AnnotationMirror>) values.get("features")) {

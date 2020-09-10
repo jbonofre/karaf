@@ -26,6 +26,7 @@ import jakarta.json.stream.JsonGeneratorFactory;
 import org.apache.karaf.devx.core.runtime.annotation.Config;
 import org.apache.karaf.devx.core.runtime.annotation.Datasource;
 import org.apache.karaf.devx.core.runtime.annotation.Management;
+import org.apache.karaf.devx.core.runtime.annotation.Runtime;
 import org.apache.karaf.devx.core.runtime.annotation.Security;
 
 import javax.annotation.processing.AbstractProcessor;

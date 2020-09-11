@@ -18,15 +18,15 @@
  */
 package org.apache.karaf.devx.core.runtime;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class KarafTest {
 
     @Test
-    @Ignore("need to set home/data")
     public void testEmbedded() throws Exception {
-        Karaf karaf = new Karaf.Builder().withArgs(new String[]{}).build();
+        Karaf karaf = new Karaf.Builder()
+                .args(new String[]{})
+                .build();
         karaf.launch();
     }
 

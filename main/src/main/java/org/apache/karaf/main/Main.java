@@ -182,7 +182,7 @@ public class Main {
             try {
                 main.launch();
             } catch (Throwable ex) {
-                // Also log to sytem.err in case logging is not yet initialized
+                // Also log to system.err in case logging is not yet initialized
                 System.err.println(ex.getMessage());
 
                 main.LOG.log(Level.SEVERE, "Could not launch framework", ex);
@@ -265,7 +265,7 @@ public class Main {
         if (config.delayConsoleStart) {
             System.out.println(config.startupMessage);
         }
-        String log4jConfigPath = System.getProperty("karaf.etc") + "/org.ops4j.pax.logging.cfg";
+        String log4jConfigPath = System.getProperty(ConfigProperties.PROP_KARAF_ETC) + "/org.ops4j.pax.logging.cfg";
         BootstrapLogManager.setProperties(config.props, log4jConfigPath);
         /* KARAF-5798: write the PID whether or not the lock has been acquired */
         InstanceHelper.writePid(config.pidFile);

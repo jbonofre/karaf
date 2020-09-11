@@ -18,10 +18,12 @@
  */
 package org.apache.karaf.devx.core.runtime;
 
+import org.apache.karaf.main.ConfigProperties;
 import org.apache.karaf.main.Main;
 
-import java.net.HttpURLConnection;
-import java.net.URL;
+import java.io.File;
+import java.nio.file.Files;
+
 
 /**
  * Karaf wrapper to start/connect/use Karaf runtime.
@@ -31,22 +33,7 @@ public class Karaf {
     private Main karafMain;
 
     private Karaf(String[] args) {
-    }
-
-    /**
-     * Download Karaf distribution from the give location.
-     *
-     * @param sourceLocation the source location of the Karaf distribution.
-     * @param targetLocation the target location where to install the Karaf distribution.
-     * @throws Exception
-     */
-    static public void download(String sourceLocation, String targetLocation) throws Exception {
-        URL url = new URL(sourceLocation);
-
-    }
-
-    public void configure() {
-
+        karafMain = new Main(args);
     }
 
     public void launch() throws Exception {
@@ -56,21 +43,46 @@ public class Karaf {
     public static class Builder {
 
         private String[] args = new String[]{};
-        private String karafHome;
+        private String location;
+        private String source;
+        private String extracted;
 
-        public Builder withArgs(String[] args) {
+        public Builder args(String[] args) {
             this.args = args;
             return this;
         }
 
-        public Builder withKarafHome(String karafHome) {
-            this.karafHome = karafHome;
+        public Builder location(String location) {
+            this.location = location;
             return this;
         }
 
-        public Karaf build() {
+        public Builder download(String source, String extracted) {
+            this.source = source;
+            this.extracted = extracted;
+            return this;
+        }
+
+        public Karaf build() throws Exception {
+            // default is embedded
+            // check if download/extract is required
+            if (source != null) {
+                if (extracted == null) {
+                    extracted = Files.createTempDirectory("karaf", null).toFile().getAbsolutePath();
+                }
+
+                location = extracted;
+            }
+            System.setProperty(ConfigProperties.PROP_KARAF_HOME, location);
+            if (args == null) {
+                args = new String[]{};
+            }
             Karaf karaf = new Karaf(args);
             return karaf;
+        }
+
+        private void downloadAndExtract(String source, String extracted) throws Exception {
+
         }
 
     }

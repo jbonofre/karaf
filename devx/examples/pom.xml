@@ -16,6 +16,7 @@
     <name>Apache Karaf :: DevX :: Examples</name>
 
     <modules>
+        <module>generate-target</module>
         <module>first</module>
         <module>inner-service</module>
         <module>rest-service</module>

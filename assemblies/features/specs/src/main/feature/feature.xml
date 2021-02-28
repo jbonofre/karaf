@@ -39,14 +39,29 @@
     </feature>
 
     <!-- activation -->
+    <feature name="activation" version="1.2">
+        <bundle dependency="true">mvn:org.apache.servicemix.specs/org.apache.servicemix.specs.activation-api-1.2.1/1.2.1_3</bundle>
+    </feature>
 
     <!-- jaxb -->
+    <feature name="jaxb" version="2.3">
+        <bundle dependency="true">mvn:org.apache.servicemix.specs/org.apache.servicemix.specs.jaxb-api-2.3/2.3_3</bundle>
+    </feature>
 
-    <!-- jackson -->
+    <!-- json -->
+    <feature name="json" version="1.1">
+        <bundle dependency="true">mvn:org.apache.servicemix.specs/org.apache.servicemix.specs.json-api-1.1/2.9.0</bundle>
+    </feature>
 
     <!-- jaxws -->
+    <feature name="jaxws" version="2.3">
+        <bundle dependency="true">mvn:org.apache.servicemix.specs/org.apache.servicemix.specs.jaxws-api-2.3/2.3_3</bundle>
+    </feature>
 
     <!-- saaj -->
+    <feature name="saaj" version="1.4">
+        <bundle dependency="true">mvn:org.apache.servicemix.specs/org.apache.servicemix.specs.saaj-api-1.4/1.4_2</bundle>
+    </feature>
 
     <!-- cdi -->
     <feature name="cdi" version="2.0">

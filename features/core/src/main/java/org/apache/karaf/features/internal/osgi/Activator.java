@@ -149,6 +149,10 @@ public class Activator extends BaseActivator {
 
     protected void doStart() throws Exception {
         BundleContext systemBundleContext = bundleContext.getBundle(0).getBundleContext();
+
+        String featureServiceType = getString("resolver", "auto");
+        System.out.println("Resolver: " + featureServiceType);
+
         ConfigurationAdmin configurationAdmin = getTrackedService(ConfigurationAdmin.class);
         int resolverThreads = getInt("resolverThreads", Runtime.getRuntime().availableProcessors());
         executorService = new ThreadPoolExecutor(0, resolverThreads,

@@ -24,7 +24,7 @@
     <parent>
         <groupId>org.apache</groupId>
         <artifactId>apache</artifactId>
-        <version>31</version>
+        <version>33</version>
         <relativePath />
     </parent>
 
@@ -151,6 +151,10 @@
 
     <properties>
         <project.build.outputTimestamp>1695310533</project.build.outputTimestamp>        
+
+        <maven.compiler.release>11</maven.compiler.release>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
 
         <scm.connection>scm:git:https://gitbox.apache.org/repos/asf/karaf.git</scm.connection>
         <scm.developerConnection>scm:git:https://gitbox.apache.org/repos/asf/karaf.git</scm.developerConnection>
@@ -685,10 +689,14 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>11</source>
+                    <target>11</target>
                     <maxmem>256M</maxmem>
                     <fork>${compiler.fork}</fork>
+                    <compilerArgs>
+                        <arg>--add-exports</arg>
+                        <arg>java.rmi/sun.rmi.registry=ALL-UNNAMED</arg>
+                    </compilerArgs>
                 </configuration>
             </plugin>
             <plugin>

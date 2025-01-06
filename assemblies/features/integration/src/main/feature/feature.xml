@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<features name="integration-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.3.0 http://karaf.apache.org/xmlns/features/v1.3.0">
+
+    <!-- NB: this file is not the one really used. This file is used by the karaf-maven-plugin to define the start-level of bundles in the generated feature.xml -->
+
+    <!-- activiti -->
+    <feature name="activiti" version="${activiti.version}">
+        <feature version="${aries.jpa.version}">jpa</feature>
+        <feature version="${cxf.version}">cxf-specs</feature>
+        <feature version="${aries.transaction.version}">transaction</feature>
+        <feature version="${camel.version}">camel</feature>
+        <feature version="${spring-version-range-karaf}">spring-orm</feature>
+        <feature version="${drools.version}">drools</feature>
+        <bundle dependency="true">mvn:joda-time/joda-time/${jodatime2.bundle.version}</bundle>
+        <bundle dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.wsdl4j/${wsdl4j.bundle.version}</bundle>
+        <bundle dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.json4s/${json4s.bundle.version}</bundle>
+        <bundle dependency="true">mvn:org.mybatis/mybatis/${mybatis.version}</bundle>
+        <bundle dependency="true">mvn:org.apache.servicemix.specs/org.apache.servicemix.specs.scripting-api-1.0/${servicemix.specs.version}</bundle>
+        <bundle dependency="true">mvn:org.apache.commons/commons-lang3/${commons-lang3.version}</bundle>
+        <bundle dependency="true">mvn:com.h2database/h2/${h2.version}</bundle>
+        <bundle dependency="true">mvn:org.mvel/mvel2/${mvel2.version}</bundle>
+        <bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-core/${fasterxml.jackson.version}</bundle>
+        <bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-annotations/${fasterxml.jackson.version}</bundle>
+        <bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-databind/${fasterxml.jackson.version}</bundle>
+        <bundle>mvn:org.activiti/activiti-engine/${activiti.version}</bundle>
+        <bundle>mvn:org.activiti/activiti-bpmn-converter/${activiti.version}</bundle>
+        <bundle>mvn:org.activiti/activiti-spring/${activiti.version}</bundle>
+        <bundle>mvn:org.activiti/activiti-bpmn-model/${activiti.version}</bundle>
+        <bundle>mvn:org.activiti/activiti-osgi/${activiti.version}</bundle>
+        <bundle>mvn:org.activiti/activiti-process-validation/${activiti.version}</bundle>
+        <bundle>mvn:org.activiti/activiti-camel/${activiti.version}</bundle>
+        <bundle>mvn:org.activiti/activiti-image-generator/${activiti.version}</bundle>
+        <bundle>mvn:org.activiti/activiti-ldap/${activiti.version}</bundle>
+        <bundle>mvn:org.activiti/activiti-jmx/${activiti.version}</bundle>
+    </feature>
+
+    <!-- akka -->
+    <feature name="akka" version="${akka.version}">
+        <bundle dependency='true'>mvn:org.scala-lang/scala-library/${scala.version}</bundle>
+        <bundle dependency="true">mvn:com.typesafe/config/${typesafe-config.version}</bundle>
+        <bundle>mvn:com.typesafe.akka/akka-actor_2.11/${akka.version}</bundle>
+        <bundle>mvn:com.typesafe.akka/akka-osgi_2.11/${akka.version}</bundle>
+        <bundle>mvn:com.typesafe.akka/akka-camel_2.11/${akka.version}</bundle>
+    </feature>
+
+    <!-- swagger -->
+    <feature name="swagger-2.10" version="${project.version}">
+        <bundle dependency='true'>mvn:org.scala-lang/scala-library/${scala-2.10.version}</bundle>
+        <bundle>mvn:org.scala-lang/scala-reflect/${scala-2.10.version}</bundle>
+        <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.javassist/${javassist.bundle.version}</bundle>
+        <bundle>mvn:com.google.guava/guava/${google.guava.version}</bundle>
+        <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/${fasterxml.jackson.version}</bundle>
+        <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-databind/${fasterxml.jackson.version}</bundle>
+        <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-annotations/${fasterxml.jackson.version}</bundle>
+        <bundle dependency='true'>mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-base/${fasterxml.jackson.version}</bundle>
+        <bundle dependency='true'>mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/${fasterxml.jackson.version}</bundle>
+        <bundle>mvn:com.fasterxml.jackson.module/jackson-module-scala_2.10/${fasterxml.jackson.version}</bundle>
+        <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.swagger-annotations/${swagger.bundle.version}</bundle>
+        <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.swagger-core/${swagger.core.bundle.version}</bundle>
+        <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.swagger-jaxrs/${swagger.bundle.version}</bundle>
+        <bundle>mvn:com.thoughtworks.paranamer/paranamer/${thoughtworks.paranamer.version}</bundle>
+        <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.json4s/${json4s.bundle.version}</bundle>
+        <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.reflections/${reflections.bundle.version}</bundle>
+    </feature>
+
+    <feature name="swagger-2.11" version="${project.version}">
+        <bundle dependency='true'>mvn:org.scala-lang/scala-library/${scala.version}</bundle>
+        <bundle dependency='true'>mvn:org.scala-lang/scala-reflect/${scala.version}</bundle>
+        <bundle dependency='true'>mvn:org.scala-lang.modules/scala-xml_2.11/${scala-xml.version}</bundle>
+        <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.javassist/${javassist.bundle.version}</bundle>
+        <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.javax-inject/${javax-inject.bundle.version}</bundle>
+        <bundle dependency='true'>mvn:com.google.guava/guava/${google.guava.version}</bundle>
+        <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/${fasterxml.jackson.version}</bundle>
+        <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-databind/${fasterxml.jackson.version}</bundle>
+        <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-annotations/${fasterxml.jackson.version}</bundle>
+        <bundle dependency='true'>mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-base/${fasterxml.jackson.version}</bundle>
+        <bundle dependency='true'>mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/${fasterxml.jackson.version}</bundle>
+        <bundle dependency='true'>mvn:com.fasterxml.jackson.module/jackson-module-paranamer/${fasterxml.jackson.version}</bundle>
+        <bundle dependency='true'>mvn:com.fasterxml.jackson.module/jackson-module-scala_2.11/${fasterxml.jackson.version}</bundle>
+        <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.swagger-annotations/${swagger.bundle.version}</bundle>
+        <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.swagger-core_2.11/${swagger.core.bundle.version}</bundle>
+        <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.swagger-jaxrs_2.11/${swagger.bundle.version}</bundle>
+        <bundle dependency='true'>mvn:com.thoughtworks.paranamer/paranamer/${thoughtworks.paranamer.version}</bundle>
+        <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.json4s_2.11/${json4s.bundle.version}</bundle>
+        <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.reflections/${reflections.bundle.version}</bundle>
+    </feature>
+
+    <!-- drools -->
+    <feature name="drools" version="${drools.version}">
+        <bundle dependency="true">mvn:org.eclipse.jdt.core.compiler/ecj/${eclipse.jdt.version}</bundle>
+        <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.drools/${drools.bundle.version}</bundle>
+    </feature>
+
+</features>

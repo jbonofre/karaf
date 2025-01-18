@@ -1,1 +1,0 @@
-# Apache Karaf runtime

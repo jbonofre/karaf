@@ -107,6 +107,9 @@
             <resource>
                 <directory>${project.basedir}/src/main/distribution</directory>
                 <filtering>false</filtering>
+                <includes>
+                    <include>README.md</include>
+                </includes>
             </resource>
         </resources>
         <plugins>

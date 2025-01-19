@@ -17,7 +17,7 @@
     under the License.
 -->
 
-# Apache Karaf - Standard Distribution
+# Apache Karaf - Minimal Distribution
 
 [Apache Karaf](https://karaf.apache.org) is a modulith runtime, supporting several frameworks and programming model (REST/API, web, spring boot, ...).
 It provides turnkey features that you can directly leverage without effort, packaged as mutable or immutable application.
@@ -45,9 +45,9 @@ It provides turnkey features that you can directly leverage without effort, pack
 * **Karaf Extensions**: Karaf project is a complete ecosystem. The runtime can be extended by other Karaf subprojects such as Karaf Decanter, Karaf Cellar, Karaf Cave, ...
 * **Third Party Extensions**: Karaf is a supported runtime for a lot of other projects as [Apache Camel](https://camel.apache.org), and much more.
 
-The standard distribution includes the "classic" features covering most of the use cases. You can install additional features depending
-of your needs.
- 
+The minimal distribution includes the minimal features neeeded to start Apache Karaf. You are free to install the features you need
+depending of your needs.
+
 ## Prerequisites
 
 Apache Karaf requires a Java SE 11 or higher to run.

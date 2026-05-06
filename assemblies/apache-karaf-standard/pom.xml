@@ -29,9 +29,9 @@
     </parent>
 
     <groupId>org.apache.karaf</groupId>
-    <artifactId>apache-karaf</artifactId>
+    <artifactId>apache-karaf-standard</artifactId>
     <packaging>pom</packaging>
-    <name>Apache Karaf :: Assemblies :: Default Distribution</name>
+    <name>Apache Karaf :: Assemblies :: Standard Distribution</name>
 
     <properties>
         <appendedResourcesDirectory>${basedir}/../etc/appended-resources</appendedResourcesDirectory>
@@ -180,7 +180,7 @@
                     </libraries>
                     <javase>17</javase>
                     <generateConsistencyReport>${project.build.directory}</generateConsistencyReport>
-                    <consistencyReportProjectName>Apache Karaf (default)</consistencyReportProjectName>
+                    <consistencyReportProjectName>Apache Karaf Standard</consistencyReportProjectName>
                 </configuration>
             </plugin>
         </plugins>

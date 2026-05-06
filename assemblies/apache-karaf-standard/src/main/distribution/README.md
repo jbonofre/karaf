@@ -17,7 +17,7 @@
     under the License.
 -->
 
-# Apache Karaf - Default Distribution
+# Apache Karaf - Standard Distribution
 
 [Apache Karaf](https://karaf.apache.org) is a modulith runtime, supporting several frameworks and programming model (REST/API, web, spring boot, ...).
 It provides turnkey features that you can directly leverage without effort, packaged as mutable or immutable application.
@@ -30,9 +30,8 @@ It provides turnkey features that you can directly leverage without effort, pack
 * **Logging System**: using a centralized logging back end supported by Log4J, Karaf
   supports a number of different APIs (JDK 1.4, JCL, SLF4J, Avalon, Tomcat, ...)
 * **Provisioning**: Provisioning of libraries or applications can be done through a number of
-  different ways, by which they will be downloaded locally, installed and started. It uses a
-  simple feature resolver that installs features and bundles in declaration order without
-  OSGi capabilities resolution overhead.
+  different ways, by which they will be downloaded locally, installed and started. It interacts
+  with the resolver to automatically install the required components.
 * **Extensible Shell console**: Karaf features a nice text console where you can manage the
   services, install new applications or libraries and manage their state. This shell is easily
   extensible by deploying new commands dynamically along with new features or applications.
@@ -46,10 +45,9 @@ It provides turnkey features that you can directly leverage without effort, pack
 * **Karaf Extensions**: Karaf project is a complete ecosystem. The runtime can be extended by other Karaf subprojects such as Karaf Decanter, Karaf Cellar, Karaf Cave, ...
 * **Third Party Extensions**: Karaf is a supported runtime for a lot of other projects as [Apache Camel](https://camel.apache.org), and much more.
 
-The default distribution uses the simple feature resolver (`resolverSimple=true`) which installs features
-and bundles in declaration order without OSGi capabilities/requirements resolution overhead.
-For the full OSGi resolver-based distribution, use `apache-karaf-standard`.
-
+The standard distribution includes the "classic" features covering most of the use cases. You can install additional features depending
+of your needs.
+ 
 ## Prerequisites
 
 Apache Karaf requires a Java SE 11 or higher to run.

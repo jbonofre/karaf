@@ -82,7 +82,31 @@
                         <artifactId>*</artifactId>
                     </exclusion>
                 </exclusions>
-             </dependency>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.karaf</groupId>
+                <artifactId>apache-karaf-standard</artifactId>
+                <type>tar.gz</type>
+                <version>${project.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>*</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.karaf</groupId>
+                <artifactId>apache-karaf-standard</artifactId>
+                <type>zip</type>
+                <version>${project.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>*</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
             <dependency>
                 <groupId>org.apache.karaf</groupId>
                 <artifactId>manual</artifactId>
